@@ -76,9 +76,13 @@ async function generateFingerprint(publicKeyJwk) {
 }
 
 // ===== HASH PUBLIC KEY FOR STORAGE =====
+// We hash only the RSA modulus (n) so the hash is identical whether
+// derived from the public key directly or reconstructed from the private key.
 async function hashPublicKey(publicKeyPem) {
+  const jwk = pemToJwk(publicKeyPem);
+  // Use only the modulus (n) — stable across all derivation paths
   const encoder = new TextEncoder();
-  const data = encoder.encode(publicKeyPem);
+  const data = encoder.encode(jwk.n);
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
