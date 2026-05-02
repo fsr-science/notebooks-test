@@ -1,10 +1,9 @@
 // ===== WAITING-LIST HELPERS =====
-// All pending uploads are stored as real files in the repo's waiting-list/ folder.
-// waiting-list/index.json  — array of metadata entries (one per pending submission)
-// waiting-list/{id}-{filename} — the actual uploaded file
+// Pending upload *metadata* stays in the repo's waiting-list/index.json (via ghProxy).
+// Pending upload *file bytes* are stored in Vercel Blob Storage (via /api/blob).
+// This keeps binary files out of git history and removes GitHub API size limits.
 
 function sanitizeForPath(name) {
-  // Keep alphanumerics, dots, dashes, underscores — replace everything else with _
   return name.replace(/[^a-zA-Z0-9._-]/g, '_');
 }
 
@@ -21,12 +20,65 @@ function b64decode(b64) {
   );
 }
 
+// ===== VERCEL BLOB HELPERS =====
+
+// Upload a file to Vercel Blob; returns { ok, url } or { ok: false, error }
+async function blobUpload(filename, base64Data) {
+  try {
+    const r = await fetch('/api/blob', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'upload', filename, content: base64Data })
+    });
+    const data = await r.json();
+    if (!r.ok) return { ok: false, error: data.error || `Blob error (${r.status})` };
+    return { ok: true, url: data.url };
+  } catch (e) {
+    return { ok: false, error: e.message };
+  }
+}
+
+// Delete a blob by its URL
+async function blobDelete(url) {
+  try {
+    const r = await fetch('/api/blob', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'delete', url })
+    });
+    const data = await r.json();
+    return r.ok ? { ok: true } : { ok: false, error: data.error };
+  } catch (e) {
+    return { ok: false, error: e.message };
+  }
+}
+
+// Fetch a blob's bytes as a Uint8Array (for preview / download / approve)
+async function blobFetch(url) {
+  try {
+    const r = await fetch('/api/blob', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'fetch', url })
+    });
+    const data = await r.json();
+    if (!r.ok || !data.content) return { ok: false, error: data.error || 'No content' };
+    // data.content is base64
+    const bytes = Uint8Array.from(atob(data.content), c => c.charCodeAt(0));
+    return { ok: true, bytes };
+  } catch (e) {
+    return { ok: false, error: e.message };
+  }
+}
+
+// ===== WAITING-LIST INDEX (still in GitHub repo) =====
+
 async function wlReadIndex() {
   const res = await ghProxy('getFileContent', { path: 'waiting-list/index.json' });
   if (!res.ok || !res.data.content) return { sha: null, items: [] };
   try {
     return { sha: res.data.sha, items: JSON.parse(b64decode(res.data.content)) };
-  } catch(e) { return { sha: res.data.sha, items: [] }; }
+  } catch (e) { return { sha: res.data.sha, items: [] }; }
 }
 
 async function wlWriteIndex(items, sha, message) {
@@ -37,6 +89,8 @@ async function wlWriteIndex(items, sha, message) {
     sha: sha || null
   });
 }
+
+// ===== PENDING UPLOADS UI =====
 
 async function loadPendingUploads() {
   const list = document.getElementById('pendingUploadsList');
@@ -80,10 +134,9 @@ async function previewPending(id) {
   const { items } = await wlReadIndex();
   const u = items.find(x => x.id === id); if (!u) return;
   showStatus('Fetching file…', true);
-  const res = await ghProxy('getFileContent', { path: `waiting-list/${u.storedName}` });
-  if (!res.ok || !res.data.content) { showStatus('✗ Could not fetch file.'); return; }
-  const bytes = Uint8Array.from(atob(res.data.content), c => c.charCodeAt(0));
-  const url = URL.createObjectURL(new Blob([bytes]));
+  const res = await blobFetch(u.blobUrl);
+  if (!res.ok) { showStatus('✗ Could not fetch file.'); return; }
+  const url = URL.createObjectURL(new Blob([res.bytes]));
   if (isMobile) openMobilePreview(url, u.originalName);
   else openPreview(url, u.originalName);
 }
@@ -92,10 +145,9 @@ async function downloadPending(id) {
   const { items } = await wlReadIndex();
   const u = items.find(x => x.id === id); if (!u) return;
   showStatus('Fetching file…', true);
-  const res = await ghProxy('getFileContent', { path: `waiting-list/${u.storedName}` });
-  if (!res.ok || !res.data.content) { showStatus('✗ Could not fetch file.'); return; }
-  const bytes = Uint8Array.from(atob(res.data.content), c => c.charCodeAt(0));
-  const url = URL.createObjectURL(new Blob([bytes]));
+  const res = await blobFetch(u.blobUrl);
+  if (!res.ok) { showStatus('✗ Could not fetch file.'); return; }
+  const url = URL.createObjectURL(new Blob([res.bytes]));
   const a = document.createElement('a'); a.href = url; a.download = u.originalName; a.click();
   setTimeout(() => URL.revokeObjectURL(url), 2000);
 }
@@ -104,6 +156,12 @@ function reuploadPending(id) {
   const inp = document.createElement('input'); inp.type = 'file';
   inp.onchange = async (e) => {
     const file = e.target.files[0]; if (!file) return;
+
+    // File size guard (25 MB)
+    if (file.size > 25 * 1024 * 1024) {
+      showStatus('✗ File too large. Maximum size is 25 MB.'); return;
+    }
+
     showStatus('Re-uploading…', true);
 
     const { sha: idxSha, items } = await wlReadIndex();
@@ -115,31 +173,22 @@ function reuploadPending(id) {
     const newOriginalName = dotIdx > -1
       ? file.name.slice(0, dotIdx) + '-edited-' + countStr + file.name.slice(dotIdx)
       : file.name + '-edited-' + countStr;
-    const newStoredName = `${u.id}-${sanitizeForPath(newOriginalName)}`;
+    const newStoredName = sanitizeForPath(newOriginalName);
 
     const reader = new FileReader();
     reader.onload = async () => {
       const b64 = reader.result.split(',')[1];
 
-      // Commit new file to waiting-list/
-      const putOk = await ghProxy('putFile', {
-        path: `waiting-list/${newStoredName}`, content: b64,
-        message: `Re-upload: ${newOriginalName}`, sha: null
-      });
+      // Upload new version to Vercel Blob
+      const putOk = await blobUpload(`waiting-list/${id}-${newStoredName}`, b64);
       if (!putOk.ok) { showStatus(`✗ Re-upload failed: ${putOk.error}`); return; }
 
-      // Delete old file from waiting-list/
-      const oldFile = await ghProxy('getFile', { path: `waiting-list/${u.storedName}` });
-      if (oldFile.ok && oldFile.data.sha) {
-        await ghProxy('deleteFile', {
-          path: `waiting-list/${u.storedName}`, sha: oldFile.data.sha,
-          message: `Replace with re-upload: ${u.storedName}`
-        });
-      }
+      // Delete old blob
+      if (u.blobUrl) await blobDelete(u.blobUrl);
 
-      // Update index
+      // Update index with new blob URL
       const newItems = items.map(x => x.id === id
-        ? { ...x, storedName: newStoredName, originalName: newOriginalName, size: file.size, reuploadCount: count + 1 }
+        ? { ...x, blobUrl: putOk.url, originalName: newOriginalName, size: file.size, reuploadCount: count + 1 }
         : x);
       await wlWriteIndex(newItems, idxSha, `Re-upload: ${newOriginalName}`);
 
@@ -157,12 +206,17 @@ async function approvePending(id) {
   const u = items.find(x => x.id === id);
   if (!u) { showStatus('✗ Item not found in waiting list.'); return; }
 
-  // Fetch the file content from waiting-list/
-  const fileRes = await ghProxy('getFileContent', { path: `waiting-list/${u.storedName}` });
-  if (!fileRes.ok || !fileRes.data.content) {
-    showStatus(`✗ Could not fetch file from waiting-list: ${fileRes.error || 'not found'}`);
+  // Fetch file bytes from Vercel Blob
+  const fileRes = await blobFetch(u.blobUrl);
+  if (!fileRes.ok) {
+    showStatus(`✗ Could not fetch file from storage: ${fileRes.error}`);
     return;
   }
+
+  // Convert bytes back to base64 for GitHub commit
+  let binary = '';
+  fileRes.bytes.forEach(b => binary += String.fromCharCode(b));
+  const b64Content = btoa(binary);
 
   // Check if destination file already exists (need its sha to update)
   const destPath = (u.destPath || '').trim().replace(/^\/|\/$/g, '');
@@ -170,18 +224,15 @@ async function approvePending(id) {
   const destCheck = await ghProxy('getFile', { path: filePath });
   const destSha = destCheck.ok ? destCheck.data.sha : null;
 
-  // Commit to destination
+  // Commit to destination in GitHub
   const approveOk = await ghProxy('putFile', {
-    path: filePath, content: fileRes.data.content,
+    path: filePath, content: b64Content,
     message: `Approve upload: ${u.originalName}`, sha: destSha
   });
   if (!approveOk.ok) { showStatus(`✗ Failed to publish: ${approveOk.error}`); return; }
 
-  // Delete from waiting-list/
-  await ghProxy('deleteFile', {
-    path: `waiting-list/${u.storedName}`, sha: fileRes.data.sha,
-    message: `Approved and removed from waiting-list: ${u.storedName}`
-  });
+  // Delete from Vercel Blob
+  if (u.blobUrl) await blobDelete(u.blobUrl);
 
   // Remove from index
   const newItems = items.filter(x => x.id !== id);
@@ -196,14 +247,8 @@ async function rejectPending(id) {
   const { sha: idxSha, items } = await wlReadIndex();
   const u = items.find(x => x.id === id); if (!u) return;
 
-  // Delete file from waiting-list/
-  const fileRes = await ghProxy('getFile', { path: `waiting-list/${u.storedName}` });
-  if (fileRes.ok && fileRes.data.sha) {
-    await ghProxy('deleteFile', {
-      path: `waiting-list/${u.storedName}`, sha: fileRes.data.sha,
-      message: `Deny and remove: ${u.storedName}`
-    });
-  }
+  // Delete blob
+  if (u.blobUrl) await blobDelete(u.blobUrl);
 
   // Remove from index
   const newItems = items.filter(x => x.id !== id);
@@ -231,12 +276,14 @@ async function updatePendingBadge() {
     if (items.length > 0) {
       if (!dot) { dot = document.createElement('span'); dot.className = 'badge-dot'; btn.appendChild(dot); }
     } else if (dot) { dot.remove(); }
-  } catch(e) { if (dot) dot.remove(); }
+  } catch (e) { if (dot) dot.remove(); }
 }
 
 // ===== UPLOAD SCREEN =====
 let _pendingFiles = [];
 let _reuploadFile = null;
+
+const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25 MB
 
 function showUploadScreen() {
   _pendingFiles = []; _reuploadFile = null;
@@ -317,17 +364,25 @@ function uploadDragOver(e) { e.preventDefault(); document.getElementById('dropZo
 function uploadDragLeave() { document.getElementById('dropZone').classList.remove('drag-over'); }
 function uploadFileDrop(e) {
   e.preventDefault(); document.getElementById('dropZone').classList.remove('drag-over');
-  const files = Array.from(e.dataTransfer.files);
+  const files = Array.from(e.dataTransfer.files).filter(f => {
+    if (f.size > MAX_FILE_SIZE) { showStatus(`✗ "${f.name}" exceeds 25 MB limit.`); return false; }
+    return true;
+  });
   if (files.length) { _pendingFiles = files; populateStep2UI(); uploadGoStep2(); }
 }
 
 function onFilePicked(e) {
-  const files = Array.from(e.target.files); if (!files.length) return;
+  const files = Array.from(e.target.files).filter(f => {
+    if (f.size > MAX_FILE_SIZE) { showStatus(`✗ "${f.name}" exceeds 25 MB limit.`); return false; }
+    return true;
+  });
+  if (!files.length) return;
   _pendingFiles = files; populateStep2UI(); uploadGoStep2();
 }
 
 function onReuploadPicked(e) {
   const file = e.target.files[0]; if (!file) return;
+  if (file.size > MAX_FILE_SIZE) { showStatus('✗ File exceeds 25 MB limit.'); return; }
   _reuploadFile = file;
   document.getElementById('reuploadInfo').textContent = `✓ Modified file selected: ${file.name} (${fmtSize(file.size)})`;
 }
@@ -358,14 +413,12 @@ function populateStep2UI() {
   `).join('');
   document.getElementById('us2pendingNotice').style.display = isAdmin() ? 'none' : 'flex';
   document.getElementById('us2adminNotice').style.display   = isAdmin() ? '' : 'none';
-  // Reupload (replace) only meaningful for single-file admin uploads
   document.getElementById('us2reuploadSection').style.display = (isAdmin() && count === 1) ? '' : 'none';
   document.getElementById('us2title').textContent = isAdmin() ? 'Ready to Publish' : `${count} File${count > 1 ? 's' : ''} Selected`;
   document.getElementById('us2sub').textContent   = isAdmin()
     ? `${count} file${count > 1 ? 's' : ''} will be published directly.`
     : `${count} file${count > 1 ? 's' : ''} will be held for admin review before being published.`;
   document.getElementById('reuploadInfo').textContent = '';
-  // Don't wipe destPath — user may have pre-filled it before picking files
 }
 
 function _setUploadProgress(done, total) {
@@ -375,7 +428,6 @@ function _setUploadProgress(done, total) {
 }
 
 async function finalizeUpload() {
-  // If single-file admin reupload, use the replacement file; otherwise use the full queue
   const files = (_reuploadFile && _pendingFiles.length === 1) ? [_reuploadFile] : _pendingFiles;
   if (!files.length) return;
   const btn     = document.getElementById('us3approveBtn');
@@ -387,6 +439,7 @@ async function finalizeUpload() {
   const results = [];
 
   if (isAdmin()) {
+    // Admin: commit directly to GitHub
     document.getElementById('us3progressWrap').style.display = '';
     for (let i = 0; i < total; i++) {
       const file = files[i];
@@ -412,7 +465,7 @@ async function finalizeUpload() {
     showUploadResultUI(failures.length === 0, msg.trim());
 
   } else {
-    // Anonymous — commit each file to waiting-list/ sequentially, then write index once
+    // Anonymous: upload to Vercel Blob, record metadata in waiting-list/index.json
     btn.textContent = 'Submitting…';
     document.getElementById('us3progressWrap').style.display = '';
     const { sha: idxSha, items } = await wlReadIndex();
@@ -427,15 +480,16 @@ async function finalizeUpload() {
         r.readAsDataURL(file);
       });
       const id = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 7);
-      const storedName = `${id}-${sanitizeForPath(file.name)}`;
-      const fileOk = await ghProxy('putFile', {
-        path: `waiting-list/${storedName}`, content: b64,
-        message: `Pending upload: ${file.name}`, sha: null
-      });
-      results.push({ name: file.name, ok: fileOk.ok });
-      if (fileOk.ok) {
+      const storedName = sanitizeForPath(file.name);
+
+      // Upload bytes to Vercel Blob
+      const blobOk = await blobUpload(`waiting-list/${id}-${storedName}`, b64);
+      results.push({ name: file.name, ok: blobOk.ok, error: blobOk.error });
+
+      if (blobOk.ok) {
         items.push({
-          id, storedName,
+          id,
+          blobUrl: blobOk.url,    // Vercel Blob URL — replaces storedName in GitHub
           originalName: file.name,
           destPath: dest,
           uploadedAt: new Date().toISOString(),

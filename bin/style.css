@@ -404,10 +404,16 @@ body {
 
 .preview-body {
   flex-grow: 1;
-  padding: 24px;
+  padding: 32px 40px;
   overflow: auto;
   min-height: 0;
   background: var(--item);
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-body .markdown-content {
+  flex: 1;
 }
 
 .preview-body pre {
@@ -491,7 +497,9 @@ body {
   line-height: 1.85;
   color: var(--fg);
   word-break: break-word;
-  max-width: 75ch;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 @media (min-width: 769px) {
