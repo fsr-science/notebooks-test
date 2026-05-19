@@ -1,0 +1,3007 @@
+.
+├── api
+│   ├── blob.js
+│   ├── desmos.js
+│   ├── gh.js
+│   ├── raw.js
+│   └── ssh.js
+├── api.zip
+├── bin
+│   ├── admins.json
+│   ├── admin-terminal.js
+│   ├── app.js
+│   ├── auth.js
+│   ├── fonts
+│   │   ├── TestTiemposText-BoldItalic.otf
+│   │   ├── TestTiemposText-Bold.otf
+│   │   ├── TestTiemposText-MediumItalic.otf
+│   │   ├── TestTiemposText-Medium.otf
+│   │   ├── TestTiemposText-RegularItalic.otf
+│   │   ├── TestTiemposText-Regular.otf
+│   │   ├── TestTiemposText-SemiboldItalic.otf
+│   │   └── TestTiemposText-Semibold.otf
+│   ├── markdown.js
+│   ├── md-init.js
+│   ├── mobile.js
+│   ├── obsidian-markdown-it.js
+│   ├── ssh-auth.js
+│   ├── ssh-crypto.js
+│   ├── ssh-login-ui.js
+│   ├── style.css
+│   ├── tikzjax
+│   │   ├── core.dump.gz
+│   │   ├── css
+│   │   │   ├── bakoma
+│   │   │   │   └── ttf
+│   │   │   │       └── cmr10.ttf
+│   │   │   └── fonts.css
+│   │   ├── output
+│   │   │   ├── fonts.css
+│   │   │   ├── tex.wasm.gz
+│   │   │   └── tikzjax.js
+│   │   ├── tex_files
+│   │   │   ├── amsbsy.sty.gz
+│   │   │   ├── amscd.sty.gz
+│   │   │   ├── amsfonts.sty.gz
+│   │   │   ├── amsgen.sty.gz
+│   │   │   ├── amsmath-2018-12-01.sty.gz
+│   │   │   ├── amsmath.sty.gz
+│   │   │   ├── amsopn.sty.gz
+│   │   │   ├── amssymb.sty.gz
+│   │   │   ├── amstex.sty.gz
+│   │   │   ├── amstext.sty.gz
+│   │   │   ├── amsxtra.sty.gz
+│   │   │   ├── array.sty.gz
+│   │   │   ├── chemfig.sty.gz
+│   │   │   ├── chemfig.tex.gz
+│   │   │   ├── circuitikz-0.4.sty.gz
+│   │   │   ├── circuitikz-0.6.sty.gz
+│   │   │   ├── circuitikz-0.7.sty.gz
+│   │   │   ├── circuitikz-0.8.3.sty.gz
+│   │   │   ├── circuitikz-0.9.3.sty.gz
+│   │   │   ├── circuitikz-0.9.6.sty.gz
+│   │   │   ├── circuitikz.sty.gz
+│   │   │   ├── cmmib57.sty.gz
+│   │   │   ├── ctikzstyle-example.tex.gz
+│   │   │   ├── ctikzstyle-legacy.tex.gz
+│   │   │   ├── ctikzstyle-romano.tex.gz
+│   │   │   ├── eucal.sty.gz
+│   │   │   ├── eufrak.sty.gz
+│   │   │   ├── euscript.sty.gz
+│   │   │   ├── ifthen.sty.gz
+│   │   │   ├── pgfcalendar.code.tex.gz
+│   │   │   ├── pgfcalendar.sty.gz
+│   │   │   ├── pgfcircbipoles.tex.gz
+│   │   │   ├── pgfcirccurrent.tex.gz
+│   │   │   ├── pgfcirc.defines.tex.gz
+│   │   │   ├── pgfcircflow.tex.gz
+│   │   │   ├── pgfcirclabel.tex.gz
+│   │   │   ├── pgfcircmonopoles.tex.gz
+│   │   │   ├── pgfcircmultipoles.tex.gz
+│   │   │   ├── pgfcircpath.tex.gz
+│   │   │   ├── pgfcircquadpoles.tex.gz
+│   │   │   ├── pgfcircshapes.tex.gz
+│   │   │   ├── pgfcirctripoles.tex.gz
+│   │   │   ├── pgfcircutils.tex.gz
+│   │   │   ├── pgfcircvoltage.tex.gz
+│   │   │   ├── pgfint.code.tex.gz
+│   │   │   ├── pgflibraryarrows.code.tex.gz
+│   │   │   ├── pgflibraryarrows.meta.code.tex.gz
+│   │   │   ├── pgflibrarybbox.code.tex.gz
+│   │   │   ├── pgflibrarycurvilinear.code.tex.gz
+│   │   │   ├── pgflibrarydatavisualization.barcharts.code.tex.gz
+│   │   │   ├── pgflibrarydatavisualization.formats.functions.code.tex.gz
+│   │   │   ├── pgflibrarydatavisualization.polar.code.tex.gz
+│   │   │   ├── pgflibrarydecorations.footprints.code.tex.gz
+│   │   │   ├── pgflibrarydecorations.fractals.code.tex.gz
+│   │   │   ├── pgflibrarydecorations.markings.code.tex.gz
+│   │   │   ├── pgflibrarydecorations.pathmorphing.code.tex.gz
+│   │   │   ├── pgflibrarydecorations.pathreplacing.code.tex.gz
+│   │   │   ├── pgflibrarydecorations.shapes.code.tex.gz
+│   │   │   ├── pgflibrarydecorations.text.code.tex.gz
+│   │   │   ├── pgflibraryfadings.code.tex.gz
+│   │   │   ├── pgflibraryfixedpointarithmetic.code.tex.gz
+│   │   │   ├── pgflibraryfpu.code.tex.gz
+│   │   │   ├── pgflibraryintersections.code.tex.gz
+│   │   │   ├── pgflibrarylindenmayersystems.code.tex.gz
+│   │   │   ├── pgflibrarypatterns.code.tex.gz
+│   │   │   ├── pgflibrarypatterns.meta.code.tex.gz
+│   │   │   ├── pgflibrarypgfplots.surfshading.code.tex.gz
+│   │   │   ├── pgflibraryplotmarks.code.tex.gz
+│   │   │   ├── pgflibraryshadings.code.tex.gz
+│   │   │   ├── pgflibraryshapes.arrows.code.tex.gz
+│   │   │   ├── pgflibraryshapes.callouts.code.tex.gz
+│   │   │   ├── pgflibraryshapes.gates.ee.code.tex.gz
+│   │   │   ├── pgflibraryshapes.gates.ee.IEC.code.tex.gz
+│   │   │   ├── pgflibraryshapes.gates.logic.code.tex.gz
+│   │   │   ├── pgflibraryshapes.gates.logic.IEC.code.tex.gz
+│   │   │   ├── pgflibraryshapes.gates.logic.US.code.tex.gz
+│   │   │   ├── pgflibraryshapes.geometric.code.tex.gz
+│   │   │   ├── pgflibraryshapes.misc.code.tex.gz
+│   │   │   ├── pgflibraryshapes.multipart.code.tex.gz
+│   │   │   ├── pgflibraryshapes.symbols.code.tex.gz
+│   │   │   ├── pgflibrarysvg.path.code.tex.gz
+│   │   │   ├── pgfmoduleanimations.code.tex.gz
+│   │   │   ├── pgfmodulebending.code.tex.gz
+│   │   │   ├── pgfmoduledatavisualization.code.tex.gz
+│   │   │   ├── pgfmoduledecorations.code.tex.gz
+│   │   │   ├── pgfmodulenonlineartransformations.code.tex.gz
+│   │   │   ├── pgfmoduleoo.code.tex.gz
+│   │   │   ├── pgfmoduleparser.code.tex.gz
+│   │   │   ├── pgfplotsarray.code.tex.gz
+│   │   │   ├── pgfplotsbinary.code.tex.gz
+│   │   │   ├── pgfplotsbinary.data.code.tex.gz
+│   │   │   ├── pgfplots.code.tex.gz
+│   │   │   ├── pgfplotscolor.code.tex.gz
+│   │   │   ├── pgfplotscolormap.code.tex.gz
+│   │   │   ├── pgfplotscoordprocessing.code.tex.gz
+│   │   │   ├── pgfplotscore.code.tex.gz
+│   │   │   ├── pgfplotsdeque.code.tex.gz
+│   │   │   ├── pgfplots.errorbars.code.tex.gz
+│   │   │   ├── pgfplotslibrary.code.tex.gz
+│   │   │   ├── pgfplotsliststructure.code.tex.gz
+│   │   │   ├── pgfplotsliststructureext.code.tex.gz
+│   │   │   ├── pgfplots.markers.code.tex.gz
+│   │   │   ├── pgfplotsmatrix.code.tex.gz
+│   │   │   ├── pgfplotsmeshplothandler.code.tex.gz
+│   │   │   ├── pgfplotsmeshplotimage.code.tex.gz
+│   │   │   ├── pgfplotsoldpgfsupp_loader.code.tex.gz
+│   │   │   ├── pgfplots.paths.code.tex.gz
+│   │   │   ├── pgfplotsplothandlers.code.tex.gz
+│   │   │   ├── pgfplots.revision.tex.gz
+│   │   │   ├── pgfplots.scaling.code.tex.gz
+│   │   │   ├── pgfplotsstackedplots.code.tex.gz
+│   │   │   ├── pgfplots.sty.gz
+│   │   │   ├── pgfplotssysgeneric.code.tex.gz
+│   │   │   ├── pgfplotstableshared.code.tex.gz
+│   │   │   ├── pgfplotsticks.code.tex.gz
+│   │   │   ├── pgfplotsutil.code.tex.gz
+│   │   │   ├── pgfplotsutil.verb.code.tex.gz
+│   │   │   ├── pgfsysanimations.code.tex.gz
+│   │   │   ├── pgfsys-luatex.def.gz
+│   │   │   ├── quiver.sty.gz
+│   │   │   ├── simplekv.sty.gz
+│   │   │   ├── simplekv.tex.gz
+│   │   │   ├── t-chemfig.tex.gz
+│   │   │   ├── t-circuitikz-0.8.3.tex.gz
+│   │   │   ├── t-circuitikz-0.9.3.tex.gz
+│   │   │   ├── t-circuitikz-0.9.6.tex.gz
+│   │   │   ├── t-circuitikz.tex.gz
+│   │   │   ├── tikz-3dplot.sty.gz
+│   │   │   ├── tikz-cd.sty.gz
+│   │   │   ├── tikzfeynhand.keys.code.tex.gz
+│   │   │   ├── tikz-feynhand.sty.gz
+│   │   │   ├── tikzfeynhand.sty.gz
+│   │   │   ├── tikzlibrary3d.code.tex.gz
+│   │   │   ├── tikzlibraryangles.code.tex.gz
+│   │   │   ├── tikzlibraryanimations.code.tex.gz
+│   │   │   ├── tikzlibraryarrows.code.tex.gz
+│   │   │   ├── tikzlibraryautomata.code.tex.gz
+│   │   │   ├── tikzlibrarybabel.code.tex.gz
+│   │   │   ├── tikzlibrarybackgrounds.code.tex.gz
+│   │   │   ├── tikzlibrarybending.code.tex.gz
+│   │   │   ├── tikzlibrarycalc.code.tex.gz
+│   │   │   ├── tikzlibrarycalendar.code.tex.gz
+│   │   │   ├── tikzlibrarycd.code.tex.gz
+│   │   │   ├── tikzlibrarychains.code.tex.gz
+│   │   │   ├── tikzlibrarycircuits.code.tex.gz
+│   │   │   ├── tikzlibrarycircuits.ee.code.tex.gz
+│   │   │   ├── tikzlibrarycircuits.ee.IEC.code.tex.gz
+│   │   │   ├── tikzlibrarycircuits.logic.CDH.code.tex.gz
+│   │   │   ├── tikzlibrarycircuits.logic.code.tex.gz
+│   │   │   ├── tikzlibrarycircuits.logic.IEC.code.tex.gz
+│   │   │   ├── tikzlibrarycircuits.logic.US.code.tex.gz
+│   │   │   ├── tikzlibrarydatavisualization.3d.code.tex.gz
+│   │   │   ├── tikzlibrarydatavisualization.barcharts.code.tex.gz
+│   │   │   ├── tikzlibrarydatavisualization.code.tex.gz
+│   │   │   ├── tikzlibrarydatavisualization.formats.functions.code.tex.gz
+│   │   │   ├── tikzlibrarydatavisualization.polar.code.tex.gz
+│   │   │   ├── tikzlibrarydatavisualization.sparklines.code.tex.gz
+│   │   │   ├── tikzlibrarydecorations.code.tex.gz
+│   │   │   ├── tikzlibrarydecorations.footprints.code.tex.gz
+│   │   │   ├── tikzlibrarydecorations.fractals.code.tex.gz
+│   │   │   ├── tikzlibrarydecorations.markings.code.tex.gz
+│   │   │   ├── tikzlibrarydecorations.pathmorphing.code.tex.gz
+│   │   │   ├── tikzlibrarydecorations.pathreplacing.code.tex.gz
+│   │   │   ├── tikzlibrarydecorations.shapes.code.tex.gz
+│   │   │   ├── tikzlibrarydecorations.text.code.tex.gz
+│   │   │   ├── tikzlibraryer.code.tex.gz
+│   │   │   ├── tikzlibraryfadings.code.tex.gz
+│   │   │   ├── tikzlibraryfeynhand.code.tex.gz
+│   │   │   ├── tikzlibraryfit.code.tex.gz
+│   │   │   ├── tikzlibraryfixedpointarithmetic.code.tex.gz
+│   │   │   ├── tikzlibraryfolding.code.tex.gz
+│   │   │   ├── tikzlibraryfpu.code.tex.gz
+│   │   │   ├── tikzlibrarygraphs.code.tex.gz
+│   │   │   ├── tikzlibrarygraphs.standard.code.tex.gz
+│   │   │   ├── tikzlibraryintersections.code.tex.gz
+│   │   │   ├── tikzlibrarylindenmayersystems.code.tex.gz
+│   │   │   ├── tikzlibrarymath.code.tex.gz
+│   │   │   ├── tikzlibrarymatrix.code.tex.gz
+│   │   │   ├── tikzlibrarymindmap.code.tex.gz
+│   │   │   ├── tikzlibrarypatterns.code.tex.gz
+│   │   │   ├── tikzlibrarypatterns.meta.code.tex.gz
+│   │   │   ├── tikzlibraryperspective.code.tex.gz
+│   │   │   ├── tikzlibrarypetri.code.tex.gz
+│   │   │   ├── tikzlibraryplothandlers.code.tex.gz
+│   │   │   ├── tikzlibraryplotmarks.code.tex.gz
+│   │   │   ├── tikzlibrarypositioning.code.tex.gz
+│   │   │   ├── tikzlibraryquotes.code.tex.gz
+│   │   │   ├── tikzlibraryrdf.code.tex.gz
+│   │   │   ├── tikzlibraryscopes.code.tex.gz
+│   │   │   ├── tikzlibraryshadings.code.tex.gz
+│   │   │   ├── tikzlibraryshadows.code.tex.gz
+│   │   │   ├── tikzlibraryshapes.arrows.code.tex.gz
+│   │   │   ├── tikzlibraryshapes.callouts.code.tex.gz
+│   │   │   ├── tikzlibraryshapes.code.tex.gz
+│   │   │   ├── tikzlibraryshapes.gates.logic.IEC.code.tex.gz
+│   │   │   ├── tikzlibraryshapes.gates.logic.US.code.tex.gz
+│   │   │   ├── tikzlibraryshapes.geometric.code.tex.gz
+│   │   │   ├── tikzlibraryshapes.misc.code.tex.gz
+│   │   │   ├── tikzlibraryshapes.multipart.code.tex.gz
+│   │   │   ├── tikzlibraryshapes.symbols.code.tex.gz
+│   │   │   ├── tikzlibrarysnakes.code.tex.gz
+│   │   │   ├── tikzlibraryspy.code.tex.gz
+│   │   │   ├── tikzlibrarysvg.path.code.tex.gz
+│   │   │   ├── tikzlibrarythrough.code.tex.gz
+│   │   │   ├── tikzlibrarytrees.code.tex.gz
+│   │   │   ├── tikzlibraryturtle.code.tex.gz
+│   │   │   ├── tikzlibraryviews.code.tex.gz
+│   │   │   ├── ueuex.fd.gz
+│   │   │   ├── ueuf.fd.gz
+│   │   │   ├── ueur.fd.gz
+│   │   │   ├── ueus.fd.gz
+│   │   │   ├── umsa.fd.gz
+│   │   │   └── umsb.fd.gz
+│   │   ├── tex_files.json
+│   │   ├── tex-mml-chtml.js
+│   │   └── tex.wasm.gz
+│   └── upload.js
+├── community
+│   └── community.html
+├── favicon.png
+├── files.json
+├── fmtree.py
+├── index.html
+├── installer.html
+├── LICENSE
+├── manifest.json
+├── node_modules
+│   ├── abs
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── ajv
+│   │   ├── dist
+│   │   │   ├── 2019.d.ts
+│   │   │   ├── 2019.js
+│   │   │   ├── 2019.js.map
+│   │   │   ├── 2020.d.ts
+│   │   │   ├── 2020.js
+│   │   │   ├── 2020.js.map
+│   │   │   ├── ajv.d.ts
+│   │   │   ├── ajv.js
+│   │   │   ├── ajv.js.map
+│   │   │   ├── compile
+│   │   │   │   ├── codegen
+│   │   │   │   │   ├── code.d.ts
+│   │   │   │   │   ├── code.js
+│   │   │   │   │   ├── code.js.map
+│   │   │   │   │   ├── index.d.ts
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.js.map
+│   │   │   │   │   ├── scope.d.ts
+│   │   │   │   │   ├── scope.js
+│   │   │   │   │   └── scope.js.map
+│   │   │   │   ├── errors.d.ts
+│   │   │   │   ├── errors.js
+│   │   │   │   ├── errors.js.map
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.js.map
+│   │   │   │   ├── jtd
+│   │   │   │   │   ├── parse.d.ts
+│   │   │   │   │   ├── parse.js
+│   │   │   │   │   ├── parse.js.map
+│   │   │   │   │   ├── serialize.d.ts
+│   │   │   │   │   ├── serialize.js
+│   │   │   │   │   ├── serialize.js.map
+│   │   │   │   │   ├── types.d.ts
+│   │   │   │   │   ├── types.js
+│   │   │   │   │   └── types.js.map
+│   │   │   │   ├── names.d.ts
+│   │   │   │   ├── names.js
+│   │   │   │   ├── names.js.map
+│   │   │   │   ├── ref_error.d.ts
+│   │   │   │   ├── ref_error.js
+│   │   │   │   ├── ref_error.js.map
+│   │   │   │   ├── resolve.d.ts
+│   │   │   │   ├── resolve.js
+│   │   │   │   ├── resolve.js.map
+│   │   │   │   ├── rules.d.ts
+│   │   │   │   ├── rules.js
+│   │   │   │   ├── rules.js.map
+│   │   │   │   ├── util.d.ts
+│   │   │   │   ├── util.js
+│   │   │   │   ├── util.js.map
+│   │   │   │   └── validate
+│   │   │   │       ├── applicability.d.ts
+│   │   │   │       ├── applicability.js
+│   │   │   │       ├── applicability.js.map
+│   │   │   │       ├── boolSchema.d.ts
+│   │   │   │       ├── boolSchema.js
+│   │   │   │       ├── boolSchema.js.map
+│   │   │   │       ├── dataType.d.ts
+│   │   │   │       ├── dataType.js
+│   │   │   │       ├── dataType.js.map
+│   │   │   │       ├── defaults.d.ts
+│   │   │   │       ├── defaults.js
+│   │   │   │       ├── defaults.js.map
+│   │   │   │       ├── index.d.ts
+│   │   │   │       ├── index.js
+│   │   │   │       ├── index.js.map
+│   │   │   │       ├── keyword.d.ts
+│   │   │   │       ├── keyword.js
+│   │   │   │       ├── keyword.js.map
+│   │   │   │       ├── subschema.d.ts
+│   │   │   │       ├── subschema.js
+│   │   │   │       └── subschema.js.map
+│   │   │   ├── core.d.ts
+│   │   │   ├── core.js
+│   │   │   ├── core.js.map
+│   │   │   ├── jtd.d.ts
+│   │   │   ├── jtd.js
+│   │   │   ├── jtd.js.map
+│   │   │   ├── refs
+│   │   │   │   ├── data.json
+│   │   │   │   ├── json-schema-2019-09
+│   │   │   │   │   ├── index.d.ts
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.js.map
+│   │   │   │   │   ├── meta
+│   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   ├── format.json
+│   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   └── validation.json
+│   │   │   │   │   └── schema.json
+│   │   │   │   ├── json-schema-2020-12
+│   │   │   │   │   ├── index.d.ts
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   ├── index.js.map
+│   │   │   │   │   ├── meta
+│   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   ├── format-annotation.json
+│   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   ├── unevaluated.json
+│   │   │   │   │   │   └── validation.json
+│   │   │   │   │   └── schema.json
+│   │   │   │   ├── json-schema-draft-06.json
+│   │   │   │   ├── json-schema-draft-07.json
+│   │   │   │   ├── json-schema-secure.json
+│   │   │   │   ├── jtd-schema.d.ts
+│   │   │   │   ├── jtd-schema.js
+│   │   │   │   └── jtd-schema.js.map
+│   │   │   ├── runtime
+│   │   │   │   ├── equal.d.ts
+│   │   │   │   ├── equal.js
+│   │   │   │   ├── equal.js.map
+│   │   │   │   ├── parseJson.d.ts
+│   │   │   │   ├── parseJson.js
+│   │   │   │   ├── parseJson.js.map
+│   │   │   │   ├── quote.d.ts
+│   │   │   │   ├── quote.js
+│   │   │   │   ├── quote.js.map
+│   │   │   │   ├── re2.d.ts
+│   │   │   │   ├── re2.js
+│   │   │   │   ├── re2.js.map
+│   │   │   │   ├── timestamp.d.ts
+│   │   │   │   ├── timestamp.js
+│   │   │   │   ├── timestamp.js.map
+│   │   │   │   ├── ucs2length.d.ts
+│   │   │   │   ├── ucs2length.js
+│   │   │   │   ├── ucs2length.js.map
+│   │   │   │   ├── uri.d.ts
+│   │   │   │   ├── uri.js
+│   │   │   │   ├── uri.js.map
+│   │   │   │   ├── validation_error.d.ts
+│   │   │   │   ├── validation_error.js
+│   │   │   │   └── validation_error.js.map
+│   │   │   ├── standalone
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.js.map
+│   │   │   │   ├── instance.d.ts
+│   │   │   │   ├── instance.js
+│   │   │   │   └── instance.js.map
+│   │   │   ├── types
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── index.js.map
+│   │   │   │   ├── json-schema.d.ts
+│   │   │   │   ├── json-schema.js
+│   │   │   │   ├── json-schema.js.map
+│   │   │   │   ├── jtd-schema.d.ts
+│   │   │   │   ├── jtd-schema.js
+│   │   │   │   └── jtd-schema.js.map
+│   │   │   └── vocabularies
+│   │   │       ├── applicator
+│   │   │       │   ├── additionalItems.d.ts
+│   │   │       │   ├── additionalItems.js
+│   │   │       │   ├── additionalItems.js.map
+│   │   │       │   ├── additionalProperties.d.ts
+│   │   │       │   ├── additionalProperties.js
+│   │   │       │   ├── additionalProperties.js.map
+│   │   │       │   ├── allOf.d.ts
+│   │   │       │   ├── allOf.js
+│   │   │       │   ├── allOf.js.map
+│   │   │       │   ├── anyOf.d.ts
+│   │   │       │   ├── anyOf.js
+│   │   │       │   ├── anyOf.js.map
+│   │   │       │   ├── contains.d.ts
+│   │   │       │   ├── contains.js
+│   │   │       │   ├── contains.js.map
+│   │   │       │   ├── dependencies.d.ts
+│   │   │       │   ├── dependencies.js
+│   │   │       │   ├── dependencies.js.map
+│   │   │       │   ├── dependentSchemas.d.ts
+│   │   │       │   ├── dependentSchemas.js
+│   │   │       │   ├── dependentSchemas.js.map
+│   │   │       │   ├── if.d.ts
+│   │   │       │   ├── if.js
+│   │   │       │   ├── if.js.map
+│   │   │       │   ├── index.d.ts
+│   │   │       │   ├── index.js
+│   │   │       │   ├── index.js.map
+│   │   │       │   ├── items2020.d.ts
+│   │   │       │   ├── items2020.js
+│   │   │       │   ├── items2020.js.map
+│   │   │       │   ├── items.d.ts
+│   │   │       │   ├── items.js
+│   │   │       │   ├── items.js.map
+│   │   │       │   ├── not.d.ts
+│   │   │       │   ├── not.js
+│   │   │       │   ├── not.js.map
+│   │   │       │   ├── oneOf.d.ts
+│   │   │       │   ├── oneOf.js
+│   │   │       │   ├── oneOf.js.map
+│   │   │       │   ├── patternProperties.d.ts
+│   │   │       │   ├── patternProperties.js
+│   │   │       │   ├── patternProperties.js.map
+│   │   │       │   ├── prefixItems.d.ts
+│   │   │       │   ├── prefixItems.js
+│   │   │       │   ├── prefixItems.js.map
+│   │   │       │   ├── properties.d.ts
+│   │   │       │   ├── properties.js
+│   │   │       │   ├── properties.js.map
+│   │   │       │   ├── propertyNames.d.ts
+│   │   │       │   ├── propertyNames.js
+│   │   │       │   ├── propertyNames.js.map
+│   │   │       │   ├── thenElse.d.ts
+│   │   │       │   ├── thenElse.js
+│   │   │       │   └── thenElse.js.map
+│   │   │       ├── code.d.ts
+│   │   │       ├── code.js
+│   │   │       ├── code.js.map
+│   │   │       ├── core
+│   │   │       │   ├── id.d.ts
+│   │   │       │   ├── id.js
+│   │   │       │   ├── id.js.map
+│   │   │       │   ├── index.d.ts
+│   │   │       │   ├── index.js
+│   │   │       │   ├── index.js.map
+│   │   │       │   ├── ref.d.ts
+│   │   │       │   ├── ref.js
+│   │   │       │   └── ref.js.map
+│   │   │       ├── discriminator
+│   │   │       │   ├── index.d.ts
+│   │   │       │   ├── index.js
+│   │   │       │   ├── index.js.map
+│   │   │       │   ├── types.d.ts
+│   │   │       │   ├── types.js
+│   │   │       │   └── types.js.map
+│   │   │       ├── draft2020.d.ts
+│   │   │       ├── draft2020.js
+│   │   │       ├── draft2020.js.map
+│   │   │       ├── draft7.d.ts
+│   │   │       ├── draft7.js
+│   │   │       ├── draft7.js.map
+│   │   │       ├── dynamic
+│   │   │       │   ├── dynamicAnchor.d.ts
+│   │   │       │   ├── dynamicAnchor.js
+│   │   │       │   ├── dynamicAnchor.js.map
+│   │   │       │   ├── dynamicRef.d.ts
+│   │   │       │   ├── dynamicRef.js
+│   │   │       │   ├── dynamicRef.js.map
+│   │   │       │   ├── index.d.ts
+│   │   │       │   ├── index.js
+│   │   │       │   ├── index.js.map
+│   │   │       │   ├── recursiveAnchor.d.ts
+│   │   │       │   ├── recursiveAnchor.js
+│   │   │       │   ├── recursiveAnchor.js.map
+│   │   │       │   ├── recursiveRef.d.ts
+│   │   │       │   ├── recursiveRef.js
+│   │   │       │   └── recursiveRef.js.map
+│   │   │       ├── errors.d.ts
+│   │   │       ├── errors.js
+│   │   │       ├── errors.js.map
+│   │   │       ├── format
+│   │   │       │   ├── format.d.ts
+│   │   │       │   ├── format.js
+│   │   │       │   ├── format.js.map
+│   │   │       │   ├── index.d.ts
+│   │   │       │   ├── index.js
+│   │   │       │   └── index.js.map
+│   │   │       ├── jtd
+│   │   │       │   ├── discriminator.d.ts
+│   │   │       │   ├── discriminator.js
+│   │   │       │   ├── discriminator.js.map
+│   │   │       │   ├── elements.d.ts
+│   │   │       │   ├── elements.js
+│   │   │       │   ├── elements.js.map
+│   │   │       │   ├── enum.d.ts
+│   │   │       │   ├── enum.js
+│   │   │       │   ├── enum.js.map
+│   │   │       │   ├── error.d.ts
+│   │   │       │   ├── error.js
+│   │   │       │   ├── error.js.map
+│   │   │       │   ├── index.d.ts
+│   │   │       │   ├── index.js
+│   │   │       │   ├── index.js.map
+│   │   │       │   ├── metadata.d.ts
+│   │   │       │   ├── metadata.js
+│   │   │       │   ├── metadata.js.map
+│   │   │       │   ├── nullable.d.ts
+│   │   │       │   ├── nullable.js
+│   │   │       │   ├── nullable.js.map
+│   │   │       │   ├── optionalProperties.d.ts
+│   │   │       │   ├── optionalProperties.js
+│   │   │       │   ├── optionalProperties.js.map
+│   │   │       │   ├── properties.d.ts
+│   │   │       │   ├── properties.js
+│   │   │       │   ├── properties.js.map
+│   │   │       │   ├── ref.d.ts
+│   │   │       │   ├── ref.js
+│   │   │       │   ├── ref.js.map
+│   │   │       │   ├── type.d.ts
+│   │   │       │   ├── type.js
+│   │   │       │   ├── type.js.map
+│   │   │       │   ├── union.d.ts
+│   │   │       │   ├── union.js
+│   │   │       │   ├── union.js.map
+│   │   │       │   ├── values.d.ts
+│   │   │       │   ├── values.js
+│   │   │       │   └── values.js.map
+│   │   │       ├── metadata.d.ts
+│   │   │       ├── metadata.js
+│   │   │       ├── metadata.js.map
+│   │   │       ├── next.d.ts
+│   │   │       ├── next.js
+│   │   │       ├── next.js.map
+│   │   │       ├── unevaluated
+│   │   │       │   ├── index.d.ts
+│   │   │       │   ├── index.js
+│   │   │       │   ├── index.js.map
+│   │   │       │   ├── unevaluatedItems.d.ts
+│   │   │       │   ├── unevaluatedItems.js
+│   │   │       │   ├── unevaluatedItems.js.map
+│   │   │       │   ├── unevaluatedProperties.d.ts
+│   │   │       │   ├── unevaluatedProperties.js
+│   │   │       │   └── unevaluatedProperties.js.map
+│   │   │       └── validation
+│   │   │           ├── const.d.ts
+│   │   │           ├── const.js
+│   │   │           ├── const.js.map
+│   │   │           ├── dependentRequired.d.ts
+│   │   │           ├── dependentRequired.js
+│   │   │           ├── dependentRequired.js.map
+│   │   │           ├── enum.d.ts
+│   │   │           ├── enum.js
+│   │   │           ├── enum.js.map
+│   │   │           ├── index.d.ts
+│   │   │           ├── index.js
+│   │   │           ├── index.js.map
+│   │   │           ├── limitContains.d.ts
+│   │   │           ├── limitContains.js
+│   │   │           ├── limitContains.js.map
+│   │   │           ├── limitItems.d.ts
+│   │   │           ├── limitItems.js
+│   │   │           ├── limitItems.js.map
+│   │   │           ├── limitLength.d.ts
+│   │   │           ├── limitLength.js
+│   │   │           ├── limitLength.js.map
+│   │   │           ├── limitNumber.d.ts
+│   │   │           ├── limitNumber.js
+│   │   │           ├── limitNumber.js.map
+│   │   │           ├── limitProperties.d.ts
+│   │   │           ├── limitProperties.js
+│   │   │           ├── limitProperties.js.map
+│   │   │           ├── multipleOf.d.ts
+│   │   │           ├── multipleOf.js
+│   │   │           ├── multipleOf.js.map
+│   │   │           ├── pattern.d.ts
+│   │   │           ├── pattern.js
+│   │   │           ├── pattern.js.map
+│   │   │           ├── required.d.ts
+│   │   │           ├── required.js
+│   │   │           ├── required.js.map
+│   │   │           ├── uniqueItems.d.ts
+│   │   │           ├── uniqueItems.js
+│   │   │           └── uniqueItems.js.map
+│   │   ├── lib
+│   │   │   ├── 2019.ts
+│   │   │   ├── 2020.ts
+│   │   │   ├── ajv.ts
+│   │   │   ├── compile
+│   │   │   │   ├── codegen
+│   │   │   │   │   ├── code.ts
+│   │   │   │   │   ├── index.ts
+│   │   │   │   │   └── scope.ts
+│   │   │   │   ├── errors.ts
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── jtd
+│   │   │   │   │   ├── parse.ts
+│   │   │   │   │   ├── serialize.ts
+│   │   │   │   │   └── types.ts
+│   │   │   │   ├── names.ts
+│   │   │   │   ├── ref_error.ts
+│   │   │   │   ├── resolve.ts
+│   │   │   │   ├── rules.ts
+│   │   │   │   ├── util.ts
+│   │   │   │   └── validate
+│   │   │   │       ├── applicability.ts
+│   │   │   │       ├── boolSchema.ts
+│   │   │   │       ├── dataType.ts
+│   │   │   │       ├── defaults.ts
+│   │   │   │       ├── index.ts
+│   │   │   │       ├── keyword.ts
+│   │   │   │       └── subschema.ts
+│   │   │   ├── core.ts
+│   │   │   ├── jtd.ts
+│   │   │   ├── refs
+│   │   │   │   ├── data.json
+│   │   │   │   ├── json-schema-2019-09
+│   │   │   │   │   ├── index.ts
+│   │   │   │   │   ├── meta
+│   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   ├── format.json
+│   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   └── validation.json
+│   │   │   │   │   └── schema.json
+│   │   │   │   ├── json-schema-2020-12
+│   │   │   │   │   ├── index.ts
+│   │   │   │   │   ├── meta
+│   │   │   │   │   │   ├── applicator.json
+│   │   │   │   │   │   ├── content.json
+│   │   │   │   │   │   ├── core.json
+│   │   │   │   │   │   ├── format-annotation.json
+│   │   │   │   │   │   ├── meta-data.json
+│   │   │   │   │   │   ├── unevaluated.json
+│   │   │   │   │   │   └── validation.json
+│   │   │   │   │   └── schema.json
+│   │   │   │   ├── json-schema-draft-06.json
+│   │   │   │   ├── json-schema-draft-07.json
+│   │   │   │   ├── json-schema-secure.json
+│   │   │   │   └── jtd-schema.ts
+│   │   │   ├── runtime
+│   │   │   │   ├── equal.ts
+│   │   │   │   ├── parseJson.ts
+│   │   │   │   ├── quote.ts
+│   │   │   │   ├── re2.ts
+│   │   │   │   ├── timestamp.ts
+│   │   │   │   ├── ucs2length.ts
+│   │   │   │   ├── uri.ts
+│   │   │   │   └── validation_error.ts
+│   │   │   ├── standalone
+│   │   │   │   ├── index.ts
+│   │   │   │   └── instance.ts
+│   │   │   ├── types
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── json-schema.ts
+│   │   │   │   └── jtd-schema.ts
+│   │   │   └── vocabularies
+│   │   │       ├── applicator
+│   │   │       │   ├── additionalItems.ts
+│   │   │       │   ├── additionalProperties.ts
+│   │   │       │   ├── allOf.ts
+│   │   │       │   ├── anyOf.ts
+│   │   │       │   ├── contains.ts
+│   │   │       │   ├── dependencies.ts
+│   │   │       │   ├── dependentSchemas.ts
+│   │   │       │   ├── if.ts
+│   │   │       │   ├── index.ts
+│   │   │       │   ├── items2020.ts
+│   │   │       │   ├── items.ts
+│   │   │       │   ├── not.ts
+│   │   │       │   ├── oneOf.ts
+│   │   │       │   ├── patternProperties.ts
+│   │   │       │   ├── prefixItems.ts
+│   │   │       │   ├── properties.ts
+│   │   │       │   ├── propertyNames.ts
+│   │   │       │   └── thenElse.ts
+│   │   │       ├── code.ts
+│   │   │       ├── core
+│   │   │       │   ├── id.ts
+│   │   │       │   ├── index.ts
+│   │   │       │   └── ref.ts
+│   │   │       ├── discriminator
+│   │   │       │   ├── index.ts
+│   │   │       │   └── types.ts
+│   │   │       ├── draft2020.ts
+│   │   │       ├── draft7.ts
+│   │   │       ├── dynamic
+│   │   │       │   ├── dynamicAnchor.ts
+│   │   │       │   ├── dynamicRef.ts
+│   │   │       │   ├── index.ts
+│   │   │       │   ├── recursiveAnchor.ts
+│   │   │       │   └── recursiveRef.ts
+│   │   │       ├── errors.ts
+│   │   │       ├── format
+│   │   │       │   ├── format.ts
+│   │   │       │   └── index.ts
+│   │   │       ├── jtd
+│   │   │       │   ├── discriminator.ts
+│   │   │       │   ├── elements.ts
+│   │   │       │   ├── enum.ts
+│   │   │       │   ├── error.ts
+│   │   │       │   ├── index.ts
+│   │   │       │   ├── metadata.ts
+│   │   │       │   ├── nullable.ts
+│   │   │       │   ├── optionalProperties.ts
+│   │   │       │   ├── properties.ts
+│   │   │       │   ├── ref.ts
+│   │   │       │   ├── type.ts
+│   │   │       │   ├── union.ts
+│   │   │       │   └── values.ts
+│   │   │       ├── metadata.ts
+│   │   │       ├── next.ts
+│   │   │       ├── unevaluated
+│   │   │       │   ├── index.ts
+│   │   │       │   ├── unevaluatedItems.ts
+│   │   │       │   └── unevaluatedProperties.ts
+│   │   │       └── validation
+│   │   │           ├── const.ts
+│   │   │           ├── dependentRequired.ts
+│   │   │           ├── enum.ts
+│   │   │           ├── index.ts
+│   │   │           ├── limitContains.ts
+│   │   │           ├── limitItems.ts
+│   │   │           ├── limitLength.ts
+│   │   │           ├── limitNumber.ts
+│   │   │           ├── limitProperties.ts
+│   │   │           ├── multipleOf.ts
+│   │   │           ├── pattern.ts
+│   │   │           ├── required.ts
+│   │   │           └── uniqueItems.ts
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── ansi-align
+│   │   ├── CHANGELOG.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── node_modules
+│   │   │   ├── ansi-regex
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── license
+│   │   │   │   ├── package.json
+│   │   │   │   └── readme.md
+│   │   │   ├── emoji-regex
+│   │   │   │   ├── es2015
+│   │   │   │   │   ├── index.js
+│   │   │   │   │   └── text.js
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── LICENSE-MIT.txt
+│   │   │   │   ├── package.json
+│   │   │   │   ├── README.md
+│   │   │   │   └── text.js
+│   │   │   ├── string-width
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── license
+│   │   │   │   ├── package.json
+│   │   │   │   └── readme.md
+│   │   │   └── strip-ansi
+│   │   │       ├── index.d.ts
+│   │   │       ├── index.js
+│   │   │       ├── license
+│   │   │       ├── package.json
+│   │   │       └── readme.md
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── ansi-regex
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── ansi-styles
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── arch
+│   │   ├── browser.js
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── arg
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE.md
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── async-retry
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE.md
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── balanced-match
+│   │   ├── index.js
+│   │   ├── LICENSE.md
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── boxen
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── brace-expansion
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── bytes
+│   │   ├── History.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── Readme.md
+│   ├── camelcase
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── capture-stack-trace
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── chalk
+│   │   ├── license
+│   │   ├── package.json
+│   │   ├── readme.md
+│   │   └── source
+│   │       ├── index.d.ts
+│   │       ├── index.js
+│   │       ├── utilities.js
+│   │       └── vendor
+│   │           ├── ansi-styles
+│   │           │   ├── index.d.ts
+│   │           │   └── index.js
+│   │           └── supports-color
+│   │               ├── browser.d.ts
+│   │               ├── browser.js
+│   │               ├── index.d.ts
+│   │               └── index.js
+│   ├── chalk-template
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── node_modules
+│   │   │   ├── ansi-styles
+│   │   │   │   ├── index.d.ts
+│   │   │   │   ├── index.js
+│   │   │   │   ├── license
+│   │   │   │   ├── package.json
+│   │   │   │   └── readme.md
+│   │   │   └── chalk
+│   │   │       ├── index.d.ts
+│   │   │       ├── license
+│   │   │       ├── package.json
+│   │   │       ├── readme.md
+│   │   │       └── source
+│   │   │           ├── index.js
+│   │   │           ├── templates.js
+│   │   │           └── util.js
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── cli-boxes
+│   │   ├── boxes.json
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── clipboardy
+│   │   ├── browser.js
+│   │   ├── fallbacks
+│   │   │   ├── linux
+│   │   │   │   └── xsel
+│   │   │   └── windows
+│   │   │       ├── clipboard_i686.exe
+│   │   │       └── clipboard_x86_64.exe
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── linux.js
+│   │   │   ├── macos.js
+│   │   │   ├── termux.js
+│   │   │   └── windows.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── color-convert
+│   │   ├── CHANGELOG.md
+│   │   ├── conversions.js
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── route.js
+│   ├── color-name
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── compressible
+│   │   ├── HISTORY.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── compression
+│   │   ├── HISTORY.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── concat-map
+│   │   ├── example
+│   │   │   └── map.js
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.markdown
+│   │   └── test
+│   │       └── map.js
+│   ├── content-disposition
+│   │   ├── HISTORY.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── core-util-is
+│   │   ├── lib
+│   │   │   └── util.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── create-error-class
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── cross-spawn
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── enoent.js
+│   │   │   ├── parse.js
+│   │   │   └── util
+│   │   │       ├── escape.js
+│   │   │       ├── readShebang.js
+│   │   │       └── resolveCommand.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── debug
+│   │   ├── CHANGELOG.md
+│   │   ├── component.json
+│   │   ├── karma.conf.js
+│   │   ├── LICENSE
+│   │   ├── Makefile
+│   │   ├── node.js
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── src
+│   │       ├── browser.js
+│   │       ├── debug.js
+│   │       ├── index.js
+│   │       ├── inspector-log.js
+│   │       └── node.js
+│   ├── deep-extend
+│   │   ├── CHANGELOG.md
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   └── deep-extend.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── deffy
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── duplexer2
+│   │   ├── index.js
+│   │   ├── LICENSE.md
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── eastasianwidth
+│   │   ├── eastasianwidth.js
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── emoji-regex
+│   │   ├── es2015
+│   │   │   ├── index.d.ts
+│   │   │   ├── index.js
+│   │   │   ├── RGI_Emoji.d.ts
+│   │   │   ├── RGI_Emoji.js
+│   │   │   ├── text.d.ts
+│   │   │   └── text.js
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE-MIT.txt
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── RGI_Emoji.d.ts
+│   │   ├── RGI_Emoji.js
+│   │   ├── text.d.ts
+│   │   └── text.js
+│   ├── err
+│   │   ├── CONTRIBUTING.md
+│   │   ├── example
+│   │   │   └── index.js
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── error-ex
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── es-errors
+│   │   ├── CHANGELOG.md
+│   │   ├── eval.d.ts
+│   │   ├── eval.js
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── range.d.ts
+│   │   ├── range.js
+│   │   ├── README.md
+│   │   ├── ref.d.ts
+│   │   ├── ref.js
+│   │   ├── syntax.d.ts
+│   │   ├── syntax.js
+│   │   ├── test
+│   │   │   └── index.js
+│   │   ├── tsconfig.json
+│   │   ├── type.d.ts
+│   │   ├── type.js
+│   │   ├── uri.d.ts
+│   │   └── uri.js
+│   ├── execa
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── command.js
+│   │   │   ├── error.js
+│   │   │   ├── kill.js
+│   │   │   ├── promise.js
+│   │   │   ├── stdio.js
+│   │   │   └── stream.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── exec-limiter
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── fast-deep-equal
+│   │   ├── es6
+│   │   │   ├── index.d.ts
+│   │   │   ├── index.js
+│   │   │   ├── react.d.ts
+│   │   │   └── react.js
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── react.d.ts
+│   │   ├── react.js
+│   │   └── README.md
+│   ├── @fastify
+│   ├── fast-uri
+│   │   ├── benchmark
+│   │   │   ├── benchmark.mjs
+│   │   │   ├── equal.mjs
+│   │   │   ├── non-simple-domain.mjs
+│   │   │   ├── package.json
+│   │   │   ├── string-array-to-hex-stripped.mjs
+│   │   │   └── ws-is-secure.mjs
+│   │   ├── eslint.config.js
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── schemes.js
+│   │   │   └── utils.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── test
+│   │   │   ├── ajv.test.js
+│   │   │   ├── equal.test.js
+│   │   │   ├── fixtures
+│   │   │   │   ├── uri-js-parse.json
+│   │   │   │   └── uri-js-serialize.json
+│   │   │   ├── parse.test.js
+│   │   │   ├── resolve.test.js
+│   │   │   ├── rfc-3986.test.js
+│   │   │   ├── serialize.test.js
+│   │   │   ├── uri-js-compatibility.test.js
+│   │   │   ├── uri-js.test.js
+│   │   │   └── util.test.js
+│   │   ├── tsconfig.json
+│   │   └── types
+│   │       ├── index.d.ts
+│   │       └── index.test-d.ts
+│   ├── @firebase
+│   ├── function-bind
+│   │   ├── CHANGELOG.md
+│   │   ├── implementation.js
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── test
+│   │       └── index.js
+│   ├── function.name
+│   │   ├── dist
+│   │   │   └── function.name.js
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── get-stream
+│   │   ├── buffer-stream.js
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── git-package-json
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── git-source
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── git-up
+│   │   ├── CONTRIBUTING.md
+│   │   ├── example
+│   │   │   └── index.js
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── test
+│   │       └── index.js
+│   ├── git-url-parse
+│   │   ├── CONTRIBUTING.md
+│   │   ├── example
+│   │   │   └── index.js
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── test
+│   │       └── index.js
+│   ├── @google-cloud
+│   ├── got
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── node_modules
+│   │   │   └── is-stream
+│   │   │       ├── index.js
+│   │   │       ├── license
+│   │   │       ├── package.json
+│   │   │       └── readme.md
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── @grpc
+│   ├── gry
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── has-flag
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── hasown
+│   │   ├── CHANGELOG.md
+│   │   ├── eslint.config.mjs
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── tsconfig.json
+│   ├── hosted-git-info
+│   │   ├── CHANGELOG.md
+│   │   ├── git-host-info.js
+│   │   ├── git-host.js
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── human-signals
+│   │   ├── build
+│   │   │   └── src
+│   │   │       ├── core.js
+│   │   │       ├── core.js.map
+│   │   │       ├── main.d.ts
+│   │   │       ├── main.js
+│   │   │       ├── main.js.map
+│   │   │       ├── realtime.js
+│   │   │       ├── realtime.js.map
+│   │   │       ├── signals.js
+│   │   │       └── signals.js.map
+│   │   ├── CHANGELOG.md
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── inherits
+│   │   ├── inherits_browser.js
+│   │   ├── inherits.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── ini
+│   │   ├── ini.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── isarray
+│   │   ├── component.json
+│   │   ├── index.js
+│   │   ├── Makefile
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── test.js
+│   ├── is-arrayish
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── is-buffer
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── is-core-module
+│   │   ├── CHANGELOG.md
+│   │   ├── core.json
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── test
+│   │       └── index.js
+│   ├── is-docker
+│   │   ├── cli.js
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── isexe
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── mode.js
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── test
+│   │   │   └── basic.js
+│   │   └── windows.js
+│   ├── is-fullwidth-code-point
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── is-node-process
+│   │   ├── lib
+│   │   │   ├── index.d.ts
+│   │   │   ├── index.js
+│   │   │   ├── index.js.map
+│   │   │   ├── index.mjs
+│   │   │   └── index.mjs.map
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── is-plain-obj
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── is-port-reachable
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── is-redirect
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── is-retry-allowed
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── is-ssh
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── is-stream
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── is-wsl
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── iterate-object
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── json-schema-traverse
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── spec
+│   │       ├── fixtures
+│   │       │   └── schema.js
+│   │       └── index.spec.js
+│   ├── @js-sdsl
+│   ├── limit-it
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── lowercase-keys
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── merge-stream
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── mime-db
+│   │   ├── db.json
+│   │   ├── HISTORY.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── mime-types
+│   │   ├── HISTORY.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── node_modules
+│   │   │   └── mime-db
+│   │   │       ├── db.json
+│   │   │       ├── HISTORY.md
+│   │   │       ├── index.js
+│   │   │       ├── LICENSE
+│   │   │       ├── package.json
+│   │   │       └── README.md
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── mimic-fn
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── minimatch
+│   │   ├── LICENSE
+│   │   ├── minimatch.js
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── minimist
+│   │   ├── CHANGELOG.md
+│   │   ├── example
+│   │   │   └── parse.js
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── test
+│   │       ├── all_bool.js
+│   │       ├── bool.js
+│   │       ├── dash.js
+│   │       ├── default_bool.js
+│   │       ├── dotted.js
+│   │       ├── kv_short.js
+│   │       ├── long.js
+│   │       ├── num.js
+│   │       ├── parse.js
+│   │       ├── parse_modified.js
+│   │       ├── proto.js
+│   │       ├── short.js
+│   │       ├── stop_early.js
+│   │       ├── unknown.js
+│   │       └── whitespace.js
+│   ├── ms
+│   │   ├── index.js
+│   │   ├── license.md
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── negotiator
+│   │   ├── HISTORY.md
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── charset.js
+│   │   │   ├── encoding.js
+│   │   │   ├── language.js
+│   │   │   └── mediaType.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── @nodable
+│   ├── node-status-codes
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── noop6
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── normalize-package-data
+│   │   ├── AUTHORS
+│   │   ├── lib
+│   │   │   ├── extract_description.js
+│   │   │   ├── fixer.js
+│   │   │   ├── make_warning.js
+│   │   │   ├── normalize.js
+│   │   │   ├── safe_format.js
+│   │   │   ├── typos.json
+│   │   │   └── warning_messages.json
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── npm-run-path
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── oargv
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── obj-def
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── object-assign
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── one-by-one
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── onetime
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── on-headers
+│   │   ├── HISTORY.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── @opentelemetry
+│   ├── os-tmpdir
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── package-json
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── package.json
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── package-json-path
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── parse-json
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   ├── readme.md
+│   │   └── vendor
+│   │       ├── parse.js
+│   │       └── unicode.js
+│   ├── parse-url
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── node_modules
+│   │   │   └── protocols
+│   │   │       ├── lib
+│   │   │       │   └── index.js
+│   │   │       ├── LICENSE
+│   │   │       ├── package.json
+│   │   │       └── README.md
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── path-is-inside
+│   │   ├── lib
+│   │   │   └── path-is-inside.js
+│   │   ├── LICENSE.txt
+│   │   └── package.json
+│   ├── path-key
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── path-parse
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── path-to-regexp
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── Readme.md
+│   ├── pinkie
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── pinkie-promise
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── prepend-http
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── process-nextick-args
+│   │   ├── index.js
+│   │   ├── license.md
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── @protobufjs
+│   ├── protocols
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── range-parser
+│   │   ├── HISTORY.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── rc
+│   │   ├── browser.js
+│   │   ├── cli.js
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   └── utils.js
+│   │   ├── LICENSE.APACHE2
+│   │   ├── LICENSE.BSD
+│   │   ├── LICENSE.MIT
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── test
+│   │       ├── ini.js
+│   │       ├── nested-env-vars.js
+│   │       └── test.js
+│   ├── readable-stream
+│   │   ├── CONTRIBUTING.md
+│   │   ├── doc
+│   │   │   └── wg-meetings
+│   │   │       └── 2015-01-30.md
+│   │   ├── duplex-browser.js
+│   │   ├── duplex.js
+│   │   ├── GOVERNANCE.md
+│   │   ├── lib
+│   │   │   ├── internal
+│   │   │   │   └── streams
+│   │   │   │       ├── BufferList.js
+│   │   │   │       ├── destroy.js
+│   │   │   │       ├── stream-browser.js
+│   │   │   │       └── stream.js
+│   │   │   ├── _stream_duplex.js
+│   │   │   ├── _stream_passthrough.js
+│   │   │   ├── _stream_readable.js
+│   │   │   ├── _stream_transform.js
+│   │   │   └── _stream_writable.js
+│   │   ├── LICENSE
+│   │   ├── node_modules
+│   │   │   └── safe-buffer
+│   │   │       ├── index.d.ts
+│   │   │       ├── index.js
+│   │   │       ├── LICENSE
+│   │   │       ├── package.json
+│   │   │       └── README.md
+│   │   ├── package.json
+│   │   ├── passthrough.js
+│   │   ├── readable-browser.js
+│   │   ├── readable.js
+│   │   ├── README.md
+│   │   ├── transform.js
+│   │   ├── writable-browser.js
+│   │   └── writable.js
+│   ├── read-all-stream
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── registry-auth-token
+│   │   ├── base64.js
+│   │   ├── CHANGELOG.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── registry-url.js
+│   │   ├── test
+│   │   │   ├── auth-token.test.js
+│   │   │   └── registry-url.test.js
+│   │   └── yarn.lock
+│   ├── registry-url
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── require-from-string
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── resolve
+│   │   ├── async.js
+│   │   ├── bin
+│   │   │   └── resolve
+│   │   ├── eslint.config.mjs
+│   │   ├── example
+│   │   │   ├── async.js
+│   │   │   └── sync.js
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── async.js
+│   │   │   ├── caller.js
+│   │   │   ├── core.js
+│   │   │   ├── core.json
+│   │   │   ├── homedir.js
+│   │   │   ├── is-core.js
+│   │   │   ├── node-modules-paths.js
+│   │   │   ├── normalize-options.js
+│   │   │   └── sync.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── readme.markdown
+│   │   ├── SECURITY.md
+│   │   ├── sync.js
+│   │   └── test
+│   │       ├── core.js
+│   │       ├── default_paths.js
+│   │       ├── dotdot
+│   │       │   ├── abc
+│   │       │   │   └── index.js
+│   │       │   └── index.js
+│   │       ├── dotdot.js
+│   │       ├── faulty_basedir.js
+│   │       ├── filter.js
+│   │       ├── filter_sync.js
+│   │       ├── homedir.js
+│   │       ├── home_paths.js
+│   │       ├── home_paths_sync.js
+│   │       ├── mock.js
+│   │       ├── mock_sync.js
+│   │       ├── module_dir
+│   │       │   ├── xmodules
+│   │       │   │   └── aaa
+│   │       │   │       └── index.js
+│   │       │   ├── ymodules
+│   │       │   │   └── aaa
+│   │       │   │       └── index.js
+│   │       │   └── zmodules
+│   │       │       └── bbb
+│   │       │           ├── main.js
+│   │       │           └── package.json
+│   │       ├── module_dir.js
+│   │       ├── node-modules-paths.js
+│   │       ├── node_path
+│   │       │   ├── x
+│   │       │   │   ├── aaa
+│   │       │   │   │   └── index.js
+│   │       │   │   └── ccc
+│   │       │   │       └── index.js
+│   │       │   └── y
+│   │       │       ├── bbb
+│   │       │       │   └── index.js
+│   │       │       └── ccc
+│   │       │           └── index.js
+│   │       ├── node_path.js
+│   │       ├── nonstring.js
+│   │       ├── pathfilter
+│   │       │   └── deep_ref
+│   │       │       └── main.js
+│   │       ├── pathfilter.js
+│   │       ├── pathfilter_sync.js
+│   │       ├── precedence
+│   │       │   ├── aaa
+│   │       │   │   ├── index.js
+│   │       │   │   └── main.js
+│   │       │   ├── aaa.js
+│   │       │   ├── bbb
+│   │       │   │   └── main.js
+│   │       │   └── bbb.js
+│   │       ├── precedence.js
+│   │       ├── resolver
+│   │       │   ├── baz
+│   │       │   │   ├── doom.js
+│   │       │   │   ├── package.json
+│   │       │   │   └── quux.js
+│   │       │   ├── browser_field
+│   │       │   │   ├── a.js
+│   │       │   │   ├── b.js
+│   │       │   │   └── package.json
+│   │       │   ├── cup.coffee
+│   │       │   ├── dot_main
+│   │       │   │   ├── index.js
+│   │       │   │   └── package.json
+│   │       │   ├── dot_slash_main
+│   │       │   │   ├── index.js
+│   │       │   │   └── package.json
+│   │       │   ├── false_main
+│   │       │   │   ├── index.js
+│   │       │   │   └── package.json
+│   │       │   ├── foo.js
+│   │       │   ├── incorrect_main
+│   │       │   │   ├── index.js
+│   │       │   │   └── package.json
+│   │       │   ├── invalid_main
+│   │       │   │   └── package.json
+│   │       │   ├── mug.coffee
+│   │       │   ├── mug.js
+│   │       │   ├── multirepo
+│   │       │   │   ├── lerna.json
+│   │       │   │   ├── package.json
+│   │       │   │   └── packages
+│   │       │   │       ├── package-a
+│   │       │   │       │   ├── index.js
+│   │       │   │       │   └── package.json
+│   │       │   │       └── package-b
+│   │       │   │           ├── index.js
+│   │       │   │           └── package.json
+│   │       │   ├── nested_symlinks
+│   │       │   │   └── mylib
+│   │       │   │       ├── async.js
+│   │       │   │       ├── package.json
+│   │       │   │       └── sync.js
+│   │       │   ├── other_path
+│   │       │   │   ├── lib
+│   │       │   │   │   └── other-lib.js
+│   │       │   │   └── root.js
+│   │       │   ├── quux
+│   │       │   │   └── foo
+│   │       │   │       └── index.js
+│   │       │   ├── same_names
+│   │       │   │   ├── foo
+│   │       │   │   │   └── index.js
+│   │       │   │   └── foo.js
+│   │       │   ├── symlinked
+│   │       │   │   ├── _
+│   │       │   │   │   ├── node_modules
+│   │       │   │   │   │   └── foo.js
+│   │       │   │   │   └── symlink_target
+│   │       │   │   └── package
+│   │       │   │       ├── bar.js
+│   │       │   │       └── package.json
+│   │       │   └── without_basedir
+│   │       │       └── main.js
+│   │       ├── resolver.js
+│   │       ├── resolver_sync.js
+│   │       ├── shadowed_core
+│   │       │   └── node_modules
+│   │       │       └── util
+│   │       │           └── index.js
+│   │       ├── shadowed_core.js
+│   │       ├── subdirs.js
+│   │       └── symlinks.js
+│   ├── retry
+│   │   ├── example
+│   │   │   ├── dns.js
+│   │   │   └── stop.js
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── retry.js
+│   │   │   └── retry_operation.js
+│   │   ├── License
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── r-json
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── r-package-json
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── safe-buffer
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── semver
+│   │   ├── bin
+│   │   │   └── semver
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── range.bnf
+│   │   ├── README.md
+│   │   └── semver.js
+│   ├── serve
+│   │   ├── build
+│   │   │   └── main.js
+│   │   ├── license.md
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── serve-handler
+│   │   ├── LICENSE
+│   │   ├── node_modules
+│   │   │   └── bytes
+│   │   │       ├── History.md
+│   │   │       ├── index.js
+│   │   │       ├── LICENSE
+│   │   │       ├── package.json
+│   │   │       └── Readme.md
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── src
+│   │       ├── directory.js
+│   │       ├── error.js
+│   │       ├── glob-slash.js
+│   │       └── index.js
+│   ├── shebang-command
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── shebang-regex
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── signal-exit
+│   │   ├── index.js
+│   │   ├── LICENSE.txt
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── signals.js
+│   ├── sliced
+│   │   ├── History.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── spdx-correct
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── spdx-exceptions
+│   │   ├── deprecated.json
+│   │   ├── index.json
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── spdx-expression-parse
+│   │   ├── AUTHORS
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── parse.js
+│   │   ├── README.md
+│   │   └── scan.js
+│   ├── spdx-license-ids
+│   │   ├── deprecated.json
+│   │   ├── index.json
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── string_decoder
+│   │   ├── lib
+│   │   │   └── string_decoder.js
+│   │   ├── LICENSE
+│   │   ├── node_modules
+│   │   │   └── safe-buffer
+│   │   │       ├── index.d.ts
+│   │   │       ├── index.js
+│   │   │       ├── LICENSE
+│   │   │       ├── package.json
+│   │   │       └── README.md
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── string-width
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── strip-ansi
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── strip-final-newline
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── strip-json-comments
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── supports-color
+│   │   ├── browser.js
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── supports-preserve-symlinks-flag
+│   │   ├── browser.js
+│   │   ├── CHANGELOG.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── test
+│   │       └── index.js
+│   ├── throttleit
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── timed-out
+│   │   ├── index.js
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── tmp
+│   │   ├── cleanup.sh
+│   │   ├── Gruntfile.js
+│   │   ├── lib
+│   │   │   └── tmp.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── test
+│   │       ├── base.js
+│   │       ├── dir-sync-test.js
+│   │       ├── dir-test.js
+│   │       ├── file-sync-test.js
+│   │       ├── file-test.js
+│   │       ├── graceful.js
+│   │       ├── graceful-sync.js
+│   │       ├── issue62.js
+│   │       ├── issue62-sync.js
+│   │       ├── keep.js
+│   │       ├── keep-sync.js
+│   │       ├── name-test.js
+│   │       ├── spawn.js
+│   │       ├── spawn-sync.js
+│   │       ├── symlinkme
+│   │       │   └── file.js
+│   │       ├── unsafe.js
+│   │       └── unsafe-sync.js
+│   ├── @tootallnate
+│   ├── type-fest
+│   │   ├── index.d.ts
+│   │   ├── package.json
+│   │   ├── readme.md
+│   │   └── source
+│   │       ├── asyncify.d.ts
+│   │       ├── async-return-type.d.ts
+│   │       ├── basic.d.ts
+│   │       ├── camel-cased-properties-deep.d.ts
+│   │       ├── camel-cased-properties.d.ts
+│   │       ├── camel-case.d.ts
+│   │       ├── conditional-except.d.ts
+│   │       ├── conditional-keys.d.ts
+│   │       ├── conditional-pick.d.ts
+│   │       ├── delimiter-cased-properties-deep.d.ts
+│   │       ├── delimiter-cased-properties.d.ts
+│   │       ├── delimiter-case.d.ts
+│   │       ├── entries.d.ts
+│   │       ├── entry.d.ts
+│   │       ├── exact.d.ts
+│   │       ├── except.d.ts
+│   │       ├── fixed-length-array.d.ts
+│   │       ├── get.d.ts
+│   │       ├── has-optional-keys.d.ts
+│   │       ├── has-required-keys.d.ts
+│   │       ├── includes.d.ts
+│   │       ├── internal.d.ts
+│   │       ├── invariant-of.d.ts
+│   │       ├── iterable-element.d.ts
+│   │       ├── join.d.ts
+│   │       ├── jsonify.d.ts
+│   │       ├── kebab-cased-properties-deep.d.ts
+│   │       ├── kebab-cased-properties.d.ts
+│   │       ├── kebab-case.d.ts
+│   │       ├── last-array-element.d.ts
+│   │       ├── literal-to-primitive.d.ts
+│   │       ├── literal-union.d.ts
+│   │       ├── merge.d.ts
+│   │       ├── merge-exclusive.d.ts
+│   │       ├── multidimensional-array.d.ts
+│   │       ├── multidimensional-readonly-array.d.ts
+│   │       ├── mutable.d.ts
+│   │       ├── numeric.d.ts
+│   │       ├── observable-like.d.ts
+│   │       ├── opaque.d.ts
+│   │       ├── optional-keys-of.d.ts
+│   │       ├── package-json.d.ts
+│   │       ├── partial-deep.d.ts
+│   │       ├── partial-on-undefined-deep.d.ts
+│   │       ├── pascal-cased-properties-deep.d.ts
+│   │       ├── pascal-cased-properties.d.ts
+│   │       ├── pascal-case.d.ts
+│   │       ├── primitive.d.ts
+│   │       ├── promisable.d.ts
+│   │       ├── promise-value.d.ts
+│   │       ├── readonly-deep.d.ts
+│   │       ├── readonly-tuple.d.ts
+│   │       ├── remove-index-signature.d.ts
+│   │       ├── replace.d.ts
+│   │       ├── require-all-or-none.d.ts
+│   │       ├── require-at-least-one.d.ts
+│   │       ├── required-keys-of.d.ts
+│   │       ├── require-exactly-one.d.ts
+│   │       ├── schema.d.ts
+│   │       ├── screaming-snake-case.d.ts
+│   │       ├── set-non-nullable.d.ts
+│   │       ├── set-optional.d.ts
+│   │       ├── set-required.d.ts
+│   │       ├── set-return-type.d.ts
+│   │       ├── simplify.d.ts
+│   │       ├── snake-cased-properties-deep.d.ts
+│   │       ├── snake-cased-properties.d.ts
+│   │       ├── snake-case.d.ts
+│   │       ├── split.d.ts
+│   │       ├── spread.d.ts
+│   │       ├── stringified.d.ts
+│   │       ├── string-key-of.d.ts
+│   │       ├── trim.d.ts
+│   │       ├── tsconfig-json.d.ts
+│   │       ├── typed-array.d.ts
+│   │       ├── union-to-intersection.d.ts
+│   │       ├── value-of.d.ts
+│   │       └── writable.d.ts
+│   ├── @types
+│   ├── typpy
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── ul
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── undici
+│   │   ├── docs
+│   │   │   └── docs
+│   │   │       ├── api
+│   │   │       │   ├── Agent.md
+│   │   │       │   ├── api-lifecycle.md
+│   │   │       │   ├── BalancedPool.md
+│   │   │       │   ├── CacheStorage.md
+│   │   │       │   ├── Client.md
+│   │   │       │   ├── Connector.md
+│   │   │       │   ├── ContentType.md
+│   │   │       │   ├── Cookies.md
+│   │   │       │   ├── Debug.md
+│   │   │       │   ├── DiagnosticsChannel.md
+│   │   │       │   ├── Dispatcher.md
+│   │   │       │   ├── DispatchInterceptor.md
+│   │   │       │   ├── EnvHttpProxyAgent.md
+│   │   │       │   ├── Errors.md
+│   │   │       │   ├── EventSource.md
+│   │   │       │   ├── Fetch.md
+│   │   │       │   ├── MockAgent.md
+│   │   │       │   ├── MockClient.md
+│   │   │       │   ├── MockErrors.md
+│   │   │       │   ├── MockPool.md
+│   │   │       │   ├── Pool.md
+│   │   │       │   ├── PoolStats.md
+│   │   │       │   ├── ProxyAgent.md
+│   │   │       │   ├── RedirectHandler.md
+│   │   │       │   ├── RetryAgent.md
+│   │   │       │   ├── RetryHandler.md
+│   │   │       │   ├── Util.md
+│   │   │       │   └── WebSocket.md
+│   │   │       └── best-practices
+│   │   │           ├── client-certificate.md
+│   │   │           ├── mocking-request.md
+│   │   │           ├── proxy.md
+│   │   │           └── writing-tests.md
+│   │   ├── index.d.ts
+│   │   ├── index-fetch.js
+│   │   ├── index.js
+│   │   ├── lib
+│   │   │   ├── api
+│   │   │   │   ├── abort-signal.js
+│   │   │   │   ├── api-connect.js
+│   │   │   │   ├── api-pipeline.js
+│   │   │   │   ├── api-request.js
+│   │   │   │   ├── api-stream.js
+│   │   │   │   ├── api-upgrade.js
+│   │   │   │   ├── index.js
+│   │   │   │   ├── readable.js
+│   │   │   │   └── util.js
+│   │   │   ├── core
+│   │   │   │   ├── connect.js
+│   │   │   │   ├── constants.js
+│   │   │   │   ├── diagnostics.js
+│   │   │   │   ├── errors.js
+│   │   │   │   ├── request.js
+│   │   │   │   ├── symbols.js
+│   │   │   │   ├── tree.js
+│   │   │   │   └── util.js
+│   │   │   ├── dispatcher
+│   │   │   │   ├── agent.js
+│   │   │   │   ├── balanced-pool.js
+│   │   │   │   ├── client-h1.js
+│   │   │   │   ├── client-h2.js
+│   │   │   │   ├── client.js
+│   │   │   │   ├── dispatcher-base.js
+│   │   │   │   ├── dispatcher.js
+│   │   │   │   ├── env-http-proxy-agent.js
+│   │   │   │   ├── fixed-queue.js
+│   │   │   │   ├── pool-base.js
+│   │   │   │   ├── pool.js
+│   │   │   │   ├── pool-stats.js
+│   │   │   │   ├── proxy-agent.js
+│   │   │   │   └── retry-agent.js
+│   │   │   ├── global.js
+│   │   │   ├── handler
+│   │   │   │   ├── decorator-handler.js
+│   │   │   │   ├── redirect-handler.js
+│   │   │   │   └── retry-handler.js
+│   │   │   ├── interceptor
+│   │   │   │   ├── dns.js
+│   │   │   │   ├── dump.js
+│   │   │   │   ├── redirect-interceptor.js
+│   │   │   │   ├── redirect.js
+│   │   │   │   ├── response-error.js
+│   │   │   │   └── retry.js
+│   │   │   ├── llhttp
+│   │   │   │   ├── constants.js
+│   │   │   │   ├── llhttp_simd-wasm.js
+│   │   │   │   ├── llhttp-wasm.js
+│   │   │   │   └── utils.js
+│   │   │   ├── mock
+│   │   │   │   ├── mock-agent.js
+│   │   │   │   ├── mock-client.js
+│   │   │   │   ├── mock-errors.js
+│   │   │   │   ├── mock-interceptor.js
+│   │   │   │   ├── mock-pool.js
+│   │   │   │   ├── mock-symbols.js
+│   │   │   │   ├── mock-utils.js
+│   │   │   │   ├── pending-interceptors-formatter.js
+│   │   │   │   └── pluralizer.js
+│   │   │   ├── util
+│   │   │   │   └── timers.js
+│   │   │   └── web
+│   │   │       ├── cache
+│   │   │       │   ├── cache.js
+│   │   │       │   ├── cachestorage.js
+│   │   │       │   ├── symbols.js
+│   │   │       │   └── util.js
+│   │   │       ├── cookies
+│   │   │       │   ├── constants.js
+│   │   │       │   ├── index.js
+│   │   │       │   ├── parse.js
+│   │   │       │   └── util.js
+│   │   │       ├── eventsource
+│   │   │       │   ├── eventsource.js
+│   │   │       │   ├── eventsource-stream.js
+│   │   │       │   └── util.js
+│   │   │       ├── fetch
+│   │   │       │   ├── body.js
+│   │   │       │   ├── constants.js
+│   │   │       │   ├── data-url.js
+│   │   │       │   ├── dispatcher-weakref.js
+│   │   │       │   ├── file.js
+│   │   │       │   ├── formdata.js
+│   │   │       │   ├── formdata-parser.js
+│   │   │       │   ├── global.js
+│   │   │       │   ├── headers.js
+│   │   │       │   ├── index.js
+│   │   │       │   ├── LICENSE
+│   │   │       │   ├── request.js
+│   │   │       │   ├── response.js
+│   │   │       │   ├── symbols.js
+│   │   │       │   ├── util.js
+│   │   │       │   └── webidl.js
+│   │   │       ├── fileapi
+│   │   │       │   ├── encoding.js
+│   │   │       │   ├── filereader.js
+│   │   │       │   ├── progressevent.js
+│   │   │       │   ├── symbols.js
+│   │   │       │   └── util.js
+│   │   │       └── websocket
+│   │   │           ├── connection.js
+│   │   │           ├── constants.js
+│   │   │           ├── events.js
+│   │   │           ├── frame.js
+│   │   │           ├── permessage-deflate.js
+│   │   │           ├── receiver.js
+│   │   │           ├── sender.js
+│   │   │           ├── symbols.js
+│   │   │           ├── util.js
+│   │   │           └── websocket.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── scripts
+│   │   │   └── strip-comments.js
+│   │   └── types
+│   │       ├── agent.d.ts
+│   │       ├── api.d.ts
+│   │       ├── balanced-pool.d.ts
+│   │       ├── cache.d.ts
+│   │       ├── client.d.ts
+│   │       ├── connector.d.ts
+│   │       ├── content-type.d.ts
+│   │       ├── cookies.d.ts
+│   │       ├── diagnostics-channel.d.ts
+│   │       ├── dispatcher.d.ts
+│   │       ├── env-http-proxy-agent.d.ts
+│   │       ├── errors.d.ts
+│   │       ├── eventsource.d.ts
+│   │       ├── fetch.d.ts
+│   │       ├── file.d.ts
+│   │       ├── filereader.d.ts
+│   │       ├── formdata.d.ts
+│   │       ├── global-dispatcher.d.ts
+│   │       ├── global-origin.d.ts
+│   │       ├── handlers.d.ts
+│   │       ├── header.d.ts
+│   │       ├── index.d.ts
+│   │       ├── interceptors.d.ts
+│   │       ├── mock-agent.d.ts
+│   │       ├── mock-client.d.ts
+│   │       ├── mock-errors.d.ts
+│   │       ├── mock-interceptor.d.ts
+│   │       ├── mock-pool.d.ts
+│   │       ├── patch.d.ts
+│   │       ├── pool.d.ts
+│   │       ├── pool-stats.d.ts
+│   │       ├── proxy-agent.d.ts
+│   │       ├── readable.d.ts
+│   │       ├── README.md
+│   │       ├── retry-agent.d.ts
+│   │       ├── retry-handler.d.ts
+│   │       ├── util.d.ts
+│   │       ├── webidl.d.ts
+│   │       └── websocket.d.ts
+│   ├── unzip-response
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── update-check
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── @upstash
+│   ├── url-parse-lax
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── util-deprecate
+│   │   ├── browser.js
+│   │   ├── History.md
+│   │   ├── LICENSE
+│   │   ├── node.js
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── validate-npm-package-license
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── vary
+│   │   ├── HISTORY.md
+│   │   ├── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── @vercel
+│   │   └── blob
+│   │       ├── dist
+│   │       │   ├── chunk-WCA6LLLU.cjs
+│   │       │   ├── chunk-WCA6LLLU.cjs.map
+│   │       │   ├── chunk-WLMB4XQD.js
+│   │       │   ├── chunk-WLMB4XQD.js.map
+│   │       │   ├── client.cjs
+│   │       │   ├── client.cjs.map
+│   │       │   ├── client.d.cts
+│   │       │   ├── client.d.ts
+│   │       │   ├── client.js
+│   │       │   ├── client.js.map
+│   │       │   ├── create-folder-vlS2Pu_G.d.cts
+│   │       │   ├── create-folder-vlS2Pu_G.d.ts
+│   │       │   ├── crypto-browser.js
+│   │       │   ├── index.cjs
+│   │       │   ├── index.cjs.map
+│   │       │   ├── index.d.cts
+│   │       │   ├── index.d.ts
+│   │       │   ├── index.js
+│   │       │   ├── index.js.map
+│   │       │   ├── stream-browser.js
+│   │       │   └── undici-browser.js
+│   │       ├── license.md
+│   │       ├── package.json
+│   │       └── README.md
+│   ├── which
+│   │   ├── bin
+│   │   │   └── node-which
+│   │   ├── CHANGELOG.md
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── which.js
+│   ├── widest-line
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   ├── w-json
+│   │   ├── lib
+│   │   │   └── index.js
+│   │   ├── LICENSE
+│   │   ├── package.json
+│   │   └── README.md
+│   ├── wrap-ansi
+│   │   ├── index.d.ts
+│   │   ├── index.js
+│   │   ├── license
+│   │   ├── package.json
+│   │   └── readme.md
+│   └── @zeit
+│       └── schemas
+│           ├── deployment
+│           │   ├── config-env.js
+│           │   ├── config.js
+│           │   ├── config-static.js
+│           │   └── service.js
+│           ├── LICENSE
+│           ├── package.json
+│           ├── README.md
+│           ├── test
+│           │   ├── deployment-env.js
+│           │   ├── deployment.js
+│           │   └── user.js
+│           └── user
+│               └── index.js
+├── offline.html
+├── package.json
+├── package-lock.json
+├── README.md
+├── SCIENCE
+│   ├── AI-NOTES
+│   │   ├── BIOLOGY
+│   │   │   ├── BIOLOGY01-THE_LIVING_WORLD
+│   │   │   │   ├── BIOLOGY01-THE_LIVING_WORLD-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY01-THE_LIVING_WORLD-NOTES.md
+│   │   │   │   ├── BIOLOGY01-THE_LIVING_WORLD-PQs.md
+│   │   │   │   └── BIOLOGY01-THE_LIVING_WORLD-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY02-BIOLOGICAL_CLASSIFICATION
+│   │   │   │   ├── BIOLOGY02-BIOLOGICAL_CLASSIFICATION-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY02-BIOLOGICAL_CLASSIFICATION-NOTES.md
+│   │   │   │   ├── BIOLOGY02-BIOLOGICAL_CLASSIFICATION-PQs.md
+│   │   │   │   └── BIOLOGY02-BIOLOGICAL_CLASSIFICATION-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY03-PLANT_KINGDOM
+│   │   │   │   ├── BIOLOGY03-PLANT_KINGDOM-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY03-PLANT_KINGDOM-NOTES.md
+│   │   │   │   ├── BIOLOGY03-PLANT_KINGDOM-PQs.md
+│   │   │   │   └── BIOLOGY03-PLANT_KINGDOM-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY04-ANIMAL_KINGDOM
+│   │   │   │   ├── BIOLOGY04-ANIMAL_KINGDOM-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY04-ANIMAL_KINGDOM-NOTES.md
+│   │   │   │   ├── BIOLOGY04-ANIMAL_KINGDOM-PQs.md
+│   │   │   │   └── BIOLOGY04-ANIMAL_KINGDOM-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY05-MORPHOLOGY_OF_FLOWERING_PLANTS
+│   │   │   │   ├── BIOLOGY05-MORPHOLOGY_OF_FLOWERING_PLANTS-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY05-MORPHOLOGY_OF_FLOWERING_PLANTS-NOTES.md
+│   │   │   │   ├── BIOLOGY05-MORPHOLOGY_OF_FLOWERING_PLANTS-PQs.md
+│   │   │   │   └── BIOLOGY05-MORPHOLOGY_OF_FLOWERING_PLANTS-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY06-ANATOMY_OF_FLOWERING_PLANTS
+│   │   │   │   ├── BIOLOGY06-ANATOMY_OF_FLOWERING_PLANTS-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY06-ANATOMY_OF_FLOWERING_PLANTS-NOTES.md
+│   │   │   │   ├── BIOLOGY06-ANATOMY_OF_FLOWERING_PLANTS-PQs.md
+│   │   │   │   └── BIOLOGY06-ANATOMY_OF_FLOWERING_PLANTS-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY07-STRUCTURAL_ORGANISATION_IN_ANIMALS
+│   │   │   │   ├── BIOLOGY07-STRUCTURAL_ORGANISATION_IN_ANIMALS-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY07-STRUCTURAL_ORGANISATION_IN_ANIMALS-NOTES.md
+│   │   │   │   ├── BIOLOGY07-STRUCTURAL_ORGANISATION_IN_ANIMALS-PQs.md
+│   │   │   │   └── BIOLOGY07-STRUCTURAL_ORGANISATION_IN_ANIMALS-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY08-CELL_THE_UNIT_OF_LIFE
+│   │   │   │   ├── BIOLOGY08-CELL_THE_UNIT_OF_LIFE-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY08-CELL_THE_UNIT_OF_LIFE-NOTES.md
+│   │   │   │   ├── BIOLOGY08-CELL_THE_UNIT_OF_LIFE-PQs.md
+│   │   │   │   └── BIOLOGY08-CELL_THE_UNIT_OF_LIFE-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY09-BIOMOLECULES
+│   │   │   │   ├── BIOLOGY09-BIOMOLECULES-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY09-BIOMOLECULES-NOTES.md
+│   │   │   │   ├── BIOLOGY09-BIOMOLECULES-PQs.md
+│   │   │   │   └── BIOLOGY09-BIOMOLECULES-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY10-CELL_CYCLE_AND_CELL_DIVISION
+│   │   │   │   ├── BIOLOGY10-CELL_CYCLE_AND_CELL_DIVISION-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY10-CELL_CYCLE_AND_CELL_DIVISION-NOTES.md
+│   │   │   │   ├── BIOLOGY10-CELL_CYCLE_AND_CELL_DIVISION-PQs.md
+│   │   │   │   └── BIOLOGY10-CELL_CYCLE_AND_CELL_DIVISION-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY11-TRANSPORT_IN_PLANTS
+│   │   │   │   ├── BIOLOGY11-TRANSPORT_IN_PLANTS-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY11-TRANSPORT_IN_PLANTS-NOTES.md
+│   │   │   │   ├── BIOLOGY11-TRANSPORT_IN_PLANTS-PQs.md
+│   │   │   │   └── BIOLOGY11-TRANSPORT_IN_PLANTS-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY12-MINERAL_NUTRITION
+│   │   │   │   ├── BIOLOGY12-MINERAL_NUTRITION-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY12-MINERAL_NUTRITION-NOTES.md
+│   │   │   │   ├── BIOLOGY12-MINERAL_NUTRITION-PQs.md
+│   │   │   │   └── BIOLOGY12-MINERAL_NUTRITION-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY13-PHOTOSYNTHESIS_IN_HIGHER_PLANTS
+│   │   │   │   ├── BIOLOGY13-PHOTOSYNTHESIS_IN_HIGHER_PLANTS-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY13-PHOTOSYNTHESIS_IN_HIGHER_PLANTS-NOTES.md
+│   │   │   │   ├── BIOLOGY13-PHOTOSYNTHESIS_IN_HIGHER_PLANTS-PQs.md
+│   │   │   │   └── BIOLOGY13-PHOTOSYNTHESIS_IN_HIGHER_PLANTS-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY14-RESPIRATION_IN_PLANTS
+│   │   │   │   ├── BIOLOGY14-RESPIRATION_IN_PLANTS-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY14-RESPIRATION_IN_PLANTS-NOTES.md
+│   │   │   │   ├── BIOLOGY14-RESPIRATION_IN_PLANTS-PQs.md
+│   │   │   │   └── BIOLOGY14-RESPIRATION_IN_PLANTS-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY15-PLANT_GROWTH_AND_DEVELOPMENT
+│   │   │   │   ├── BIOLOGY15-PLANT_GROWTH_AND_DEVELOPMENT-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY15-PLANT_GROWTH_AND_DEVELOPMENT-NOTES.md
+│   │   │   │   ├── BIOLOGY15-PLANT_GROWTH_AND_DEVELOPMENT-PQs.md
+│   │   │   │   └── BIOLOGY15-PLANT_GROWTH_AND_DEVELOPMENT-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY16-DIGESTION_AND_ABSORPTION
+│   │   │   │   ├── BIOLOGY16-DIGESTION_AND_ABSORPTION-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY16-DIGESTION_AND_ABSORPTION-NOTES.md
+│   │   │   │   ├── BIOLOGY16-DIGESTION_AND_ABSORPTION-PQs.md
+│   │   │   │   └── BIOLOGY16-DIGESTION_AND_ABSORPTION-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY17-BREATHING_AND_EXCHANGE_OF_GASES
+│   │   │   │   ├── BIOLOGY17-BREATHING_AND_EXCHANGE_OF_GASES-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY17-BREATHING_AND_EXCHANGE_OF_GASES-NOTES.md
+│   │   │   │   ├── BIOLOGY17-BREATHING_AND_EXCHANGE_OF_GASES-PQs.md
+│   │   │   │   └── BIOLOGY17-BREATHING_AND_EXCHANGE_OF_GASES-REVISION_MINDMAPS.md
+│   │   │   ├── BIOLOGY18-BODY_FLUIDS_AND_CIRCULATION
+│   │   │   │   ├── BIOLOGY18-BODY_FLUIDS_AND_CIRCULATION-GLOSSARY.md
+│   │   │   │   ├── BIOLOGY18-BODY_FLUIDS_AND_CIRCULATION-NOTES.md
+│   │   │   │   ├── BIOLOGY18-BODY_FLUIDS_AND_CIRCULATION-PQs.md
+│   │   │   │   └── BIOLOGY18-BODY_FLUIDS_AND_CIRCULATION-REVISION_MINDMAPS.md
+│   │   │   └── BIOLOGY19-EXCRETORY_PRODUCTS_AND_THEIR_ELIMINATION
+│   │   │       ├── BIOLOGY19-EXCRETORY_PRODUCTS_AND_THEIR_ELIMINATION-GLOSSARY.md
+│   │   │       ├── BIOLOGY19-EXCRETORY_PRODUCTS_AND_THEIR_ELIMINATION-NOTES.md
+│   │   │       ├── BIOLOGY19-EXCRETORY_PRODUCTS_AND_THEIR_ELIMINATION-PQs.md
+│   │   │       └── BIOLOGY19-EXCRETORY_PRODUCTS_AND_THEIR_ELIMINATION-REVISION_MINDMAPS.md
+│   │   ├── CHEMISTRY
+│   │   │   ├── CHEMISTRY01-SOME_BASIC_CONCEPTS_OF_CHEMISTRY
+│   │   │   │   ├── CHEMISTRY01-SOME_BASIC_CONCEPTS_OF_CHEMISTRY-GLOSSARY.md
+│   │   │   │   ├── CHEMISTRY01-SOME_BASIC_CONCEPTS_OF_CHEMISTRY-NOTES.md
+│   │   │   │   ├── CHEMISTRY01-SOME_BASIC_CONCEPTS_OF_CHEMISTRY-PQs.md
+│   │   │   │   └── CHEMISTRY01-SOME_BASIC_CONCEPTS_OF_CHEMISTRY-REVISION_MINDMAPS.md
+│   │   │   ├── CHEMISTRY02-STRUCTURE_OF_ATOM
+│   │   │   │   ├── CHEMISTRY02-STRUCTURE_OF_ATOM-GLOSSARY.md
+│   │   │   │   ├── CHEMISTRY02-STRUCTURE_OF_ATOM-NOTES.md
+│   │   │   │   ├── CHEMISTRY02-STRUCTURE_OF_ATOM-PQs.md
+│   │   │   │   └── CHEMISTRY02-STRUCTURE_OF_ATOM-REVISION_MINDMAPS.md
+│   │   │   ├── CHEMISTRY03-CLASSIFICATION_OF_ELEMENTS_AND_PERIODICITY
+│   │   │   │   ├── CHEMISTRY03-CLASSIFICATION_OF_ELEMENTS_AND_PERIODICITY-GLOSSARY.md
+│   │   │   │   ├── CHEMISTRY03-CLASSIFICATION_OF_ELEMENTS_AND_PERIODICITY-NOTES.md
+│   │   │   │   ├── CHEMISTRY03-CLASSIFICATION_OF_ELEMENTS_AND_PERIODICITY-PQs.md
+│   │   │   │   └── CHEMISTRY03-CLASSIFICATION_OF_ELEMENTS_AND_PERIODICITY-REVISION_MINDMAPS.md
+│   │   │   ├── CHEMISTRY04-CHEMICAL_BONDING_AND_MOLECULAR_STRUCTURE
+│   │   │   │   ├── CHEMISTRY04-CHEMICAL_BONDING_AND_MOLECULAR_STRUCTURE-GLOSSARY.md
+│   │   │   │   ├── CHEMISTRY04-CHEMICAL_BONDING_AND_MOLECULAR_STRUCTURE-NOTES.md
+│   │   │   │   ├── CHEMISTRY04-CHEMICAL_BONDING_AND_MOLECULAR_STRUCTURE-PQs.md
+│   │   │   │   └── CHEMISTRY04-CHEMICAL_BONDING_AND_MOLECULAR_STRUCTURE-REVISION_MINDMAPS.md
+│   │   │   ├── CHEMISTRY05-THERMODYNAMICS
+│   │   │   │   ├── CHEMISTRY05-THERMODYNAMICS-GLOSSARY.md
+│   │   │   │   ├── CHEMISTRY05-THERMODYNAMICS-NOTES.md
+│   │   │   │   ├── CHEMISTRY05-THERMODYNAMICS-PQs.md
+│   │   │   │   └── CHEMISTRY05-THERMODYNAMICS-REVISION_MINDMAPS.md
+│   │   │   ├── CHEMISTRY06-EQUILIBRIUM
+│   │   │   │   ├── CHEMISTRY06-EQUILIBRIUM-GLOSSARY.md
+│   │   │   │   ├── CHEMISTRY06-EQUILIBRIUM-NOTES.md
+│   │   │   │   ├── CHEMISTRY06-EQUILIBRIUM-PQs.md
+│   │   │   │   └── CHEMISTRY06-EQUILIBRIUM-REVISION_MINDMAPS.md
+│   │   │   ├── CHEMISTRY07-REDOX_REACTIONS
+│   │   │   │   ├── CHEMISTRY07-REDOX_REACTIONS-GLOSSARY.md
+│   │   │   │   ├── CHEMISTRY07-REDOX_REACTIONS-NOTES.md
+│   │   │   │   ├── CHEMISTRY07-REDOX_REACTIONS-PQs.md
+│   │   │   │   └── CHEMISTRY07-REDOX_REACTIONS-REVISION_MINDMAPS.md
+│   │   │   ├── CHEMISTRY08-ORGANIC_CHEMISTRY_BASIC_PRINCIPLES_AND_TECHNIQUES
+│   │   │   │   ├── CHEMISTRY08-ORGANIC_CHEMISTRY_BASIC_PRINCIPLES_AND_TECHNIQUES-GLOSSARY.md
+│   │   │   │   ├── CHEMISTRY08-ORGANIC_CHEMISTRY_BASIC_PRINCIPLES_AND_TECHNIQUES-NOTES.md
+│   │   │   │   ├── CHEMISTRY08-ORGANIC_CHEMISTRY_BASIC_PRINCIPLES_AND_TECHNIQUES-PQs.md
+│   │   │   │   └── CHEMISTRY08-ORGANIC_CHEMISTRY_BASIC_PRINCIPLES_AND_TECHNIQUES-REVISION_MINDMAPS.md
+│   │   │   └── CHEMISTRY09-HYDROCARBONS
+│   │   │       ├── CHEMISTRY09-HYDROCARBONS-GLOSSARY.md
+│   │   │       ├── CHEMISTRY09-HYDROCARBONS-NOTES.md
+│   │   │       ├── CHEMISTRY09-HYDROCARBONS-PQs.md
+│   │   │       └── CHEMISTRY09-HYDROCARBONS-REVISION_MINDMAPS.md
+│   │   ├── COMPUTER-SCIENCE
+│   │   │   ├── CS01-COMPUTER_SYSTEM
+│   │   │   │   ├── CS01-COMPUTER_SYSTEM-GLOSSARY.md
+│   │   │   │   ├── CS01-COMPUTER_SYSTEM-NOTES.md
+│   │   │   │   ├── CS01-COMPUTER_SYSTEM-PQs.md
+│   │   │   │   └── CS01-COMPUTER_SYSTEM-REVISION_MINDMAPS.md
+│   │   │   ├── CS02-ENCODING_SCHEMES_AND_NUMBER_SYSTEM
+│   │   │   │   ├── CS02-ENCODING_SCHEMES_AND_NUMBER_SYSTEM-GLOSSARY.md
+│   │   │   │   ├── CS02-ENCODING_SCHEMES_AND_NUMBER_SYSTEM-NOTES.md
+│   │   │   │   ├── CS02-ENCODING_SCHEMES_AND_NUMBER_SYSTEM-PQs.md
+│   │   │   │   └── CS02-ENCODING_SCHEMES_AND_NUMBER_SYSTEM-REVISION_MINDMAPS.md
+│   │   │   ├── CS03-EMERGING_TRENDS
+│   │   │   │   ├── CS03-EMERGING_TRENDS-GLOSSARY.md
+│   │   │   │   ├── CS03-EMERGING_TRENDS-NOTES.md
+│   │   │   │   ├── CS03-EMERGING_TRENDS-PQs.md
+│   │   │   │   └── CS03-EMERGING_TRENDS-REVISION_MINDMAPS.md
+│   │   │   ├── CS04-PROBLEM_SOLVING
+│   │   │   │   ├── CS04-PROBLEM_SOLVING-GLOSSARY.md
+│   │   │   │   ├── CS04-PROBLEM_SOLVING-NOTES.md
+│   │   │   │   ├── CS04-PROBLEM_SOLVING-PQs.md
+│   │   │   │   └── CS04-PROBLEM_SOLVING-REVISION_MINDMAPS.md
+│   │   │   ├── CS05-GETTING_STARTED_WITH_PYTHON
+│   │   │   │   ├── CS05-GETTING_STARTED_WITH_PYTHON-GLOSSARY.md
+│   │   │   │   ├── CS05-GETTING_STARTED_WITH_PYTHON-NOTES.md
+│   │   │   │   ├── CS05-GETTING_STARTED_WITH_PYTHON-PQs.md
+│   │   │   │   └── CS05-GETTING_STARTED_WITH_PYTHON-REVISION_MINDMAPS.md
+│   │   │   ├── CS06-FLOW_OF_CONTROL
+│   │   │   │   ├── CS06-FLOW_OF_CONTROL-GLOSSARY.md
+│   │   │   │   ├── CS06-FLOW_OF_CONTROL-NOTES.md
+│   │   │   │   ├── CS06-FLOW_OF_CONTROL-PQs.md
+│   │   │   │   └── CS06-FLOW_OF_CONTROL-REVISION_MINDMAPS.md
+│   │   │   ├── CS07-FUNCTIONS
+│   │   │   │   ├── CS07-FUNCTIONS-GLOSSARY.md
+│   │   │   │   ├── CS07-FUNCTIONS-NOTES.md
+│   │   │   │   ├── CS07-FUNCTIONS-PQs.md
+│   │   │   │   └── CS07-FUNCTIONS-REVISION_MINDMAPS.md
+│   │   │   ├── CS08-STRINGS
+│   │   │   │   ├── CS08-STRINGS-GLOSSARY.md
+│   │   │   │   ├── CS08-STRINGS-NOTES.md
+│   │   │   │   ├── CS08-STRINGS-PQs.md
+│   │   │   │   └── CS08-STRINGS-REVISION_MINDMAPS.md
+│   │   │   ├── CS09-LISTS
+│   │   │   │   ├── CS09-LISTS-GLOSSARY.md
+│   │   │   │   ├── CS09-LISTS-NOTES.md
+│   │   │   │   ├── CS09-LISTS-PQs.md
+│   │   │   │   └── CS09-LISTS-REVISION_MINDMAPS.md
+│   │   │   ├── CS10-TUPLES_AND_DICTIONARIES
+│   │   │   │   ├── CS10-TUPLES_AND_DICTIONARIES-GLOSSARY.md
+│   │   │   │   ├── CS10-TUPLES_AND_DICTIONARIES-NOTES.md
+│   │   │   │   ├── CS10-TUPLES_AND_DICTIONARIES-PQs.md
+│   │   │   │   └── CS10-TUPLES_AND_DICTIONARIES-REVISION_MINDMAPS.md
+│   │   │   └── CS11-SOCIETAL_IMPACTS
+│   │   │       ├── CS11-SOCIETAL_IMPACTS-GLOSSARY.md
+│   │   │       ├── CS11-SOCIETAL_IMPACTS-NOTES.md
+│   │   │       ├── CS11-SOCIETAL_IMPACTS-PQs.md
+│   │   │       └── CS11-SOCIETAL_IMPACTS-REVISION_MINDMAPS.md
+│   │   ├── MATHEMATICS
+│   │   │   ├── MATHEMATICS01-SETS
+│   │   │   │   ├── MATHEMATICS01-SETS-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS01-SETS-NOTES.md
+│   │   │   │   ├── MATHEMATICS01-SETS-PQs.md
+│   │   │   │   └── MATHEMATICS01-SETS-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS02-RELATIONS_AND_FUNCTIONS
+│   │   │   │   ├── MATHEMATICS02-RELATIONS_AND_FUNCTIONS-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS02-RELATIONS_AND_FUNCTIONS-NOTES.md
+│   │   │   │   ├── MATHEMATICS02-RELATIONS_AND_FUNCTIONS-PQs.md
+│   │   │   │   └── MATHEMATICS02-RELATIONS_AND_FUNCTIONS-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS03-TRIGONOMETRIC_FUNCTIONS
+│   │   │   │   ├── MATHEMATICS03-TRIGONOMETRIC_FUNCTIONS-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS03-TRIGONOMETRIC_FUNCTIONS-NOTES.md
+│   │   │   │   ├── MATHEMATICS03-TRIGONOMETRIC_FUNCTIONS-PQs.md
+│   │   │   │   └── MATHEMATICS03-TRIGONOMETRIC_FUNCTIONS-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS04-COMPLEX_NUMBERS_AND_QUADRATIC_EQUATIONS
+│   │   │   │   ├── MATHEMATICS04-COMPLEX_NUMBERS_AND_QUADRATIC_EQUATIONS-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS04-COMPLEX_NUMBERS_AND_QUADRATIC_EQUATIONS-NOTES.md
+│   │   │   │   ├── MATHEMATICS04-COMPLEX_NUMBERS_AND_QUADRATIC_EQUATIONS-PQs.md
+│   │   │   │   └── MATHEMATICS04-COMPLEX_NUMBERS_AND_QUADRATIC_EQUATIONS-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS05-LINEAR_INEQUALITIES
+│   │   │   │   ├── MATHEMATICS05-LINEAR_INEQUALITIES-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS05-LINEAR_INEQUALITIES-NOTES.md
+│   │   │   │   ├── MATHEMATICS05-LINEAR_INEQUALITIES-PQs.md
+│   │   │   │   └── MATHEMATICS05-LINEAR_INEQUALITIES-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS06-PERMUTATIONS_AND_COMBINATIONS
+│   │   │   │   ├── MATHEMATICS06-PERMUTATIONS_AND_COMBINATIONS-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS06-PERMUTATIONS_AND_COMBINATIONS-NOTES.md
+│   │   │   │   ├── MATHEMATICS06-PERMUTATIONS_AND_COMBINATIONS-PQs.md
+│   │   │   │   └── MATHEMATICS06-PERMUTATIONS_AND_COMBINATIONS-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS07-BINOMIAL_THEOREM
+│   │   │   │   ├── MATHEMATICS07-BINOMIAL_THEOREM-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS07-BINOMIAL_THEOREM-NOTES.md
+│   │   │   │   ├── MATHEMATICS07-BINOMIAL_THEOREM-PQs.md
+│   │   │   │   └── MATHEMATICS07-BINOMIAL_THEOREM-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS08-SEQUENCES_AND_SERIES
+│   │   │   │   ├── MATHEMATICS08-SEQUENCES_AND_SERIES-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS08-SEQUENCES_AND_SERIES-NOTES.md
+│   │   │   │   ├── MATHEMATICS08-SEQUENCES_AND_SERIES-PQs.md
+│   │   │   │   └── MATHEMATICS08-SEQUENCES_AND_SERIES-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS09-STRAIGHT_LINES
+│   │   │   │   ├── MATHEMATICS09-STRAIGHT_LINES-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS09-STRAIGHT_LINES-NOTES.md
+│   │   │   │   ├── MATHEMATICS09-STRAIGHT_LINES-PQs.md
+│   │   │   │   └── MATHEMATICS09-STRAIGHT_LINES-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS10-CONIC_SECTIONS
+│   │   │   │   ├── MATHEMATICS10-CONIC_SECTIONS-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS10-CONIC_SECTIONS-NOTES.md
+│   │   │   │   ├── MATHEMATICS10-CONIC_SECTIONS-PQs.md
+│   │   │   │   └── MATHEMATICS10-CONIC_SECTIONS-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS11-INTRODUCTION_TO_3D_GEOMETRY
+│   │   │   │   ├── MATHEMATICS11-INTRODUCTION_TO_3D_GEOMETRY-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS11-INTRODUCTION_TO_3D_GEOMETRY-NOTES.md
+│   │   │   │   ├── MATHEMATICS11-INTRODUCTION_TO_3D_GEOMETRY-PQs.md
+│   │   │   │   └── MATHEMATICS11-INTRODUCTION_TO_3D_GEOMETRY-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS12-LIMITS_AND_DERIVATIVES
+│   │   │   │   ├── MATHEMATICS12-LIMITS_AND_DERIVATIVES-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS12-LIMITS_AND_DERIVATIVES-NOTES.md
+│   │   │   │   ├── MATHEMATICS12-LIMITS_AND_DERIVATIVES-PQs.md
+│   │   │   │   └── MATHEMATICS12-LIMITS_AND_DERIVATIVES-REVISION_MINDMAPS.md
+│   │   │   ├── MATHEMATICS13-STATISTICS
+│   │   │   │   ├── MATHEMATICS13-STATISTICS-GLOSSARY.md
+│   │   │   │   ├── MATHEMATICS13-STATISTICS-NOTES.md
+│   │   │   │   ├── MATHEMATICS13-STATISTICS-PQs.md
+│   │   │   │   └── MATHEMATICS13-STATISTICS-REVISION_MINDMAPS.md
+│   │   │   └── MATHEMATICS14-PROBABILITY
+│   │   │       ├── MATHEMATICS14-PROBABILITY-GLOSSARY.md
+│   │   │       ├── MATHEMATICS14-PROBABILITY-NOTES.md
+│   │   │       ├── MATHEMATICS14-PROBABILITY-PQs.md
+│   │   │       └── MATHEMATICS14-PROBABILITY-REVISION_MINDMAPS.md
+│   │   └── PHYSICS
+│   │       ├── PHYSICS01-UNITS_AND_MEASUREMENTS
+│   │       │   ├── PHYSICS01-UNITS_AND_MEASUREMENTS-GLOSSARY.md
+│   │       │   ├── PHYSICS01-UNITS_AND_MEASUREMENTS-NOTES.md
+│   │       │   ├── PHYSICS01-UNITS_AND_MEASUREMENTS-PQs.md
+│   │       │   └── PHYSICS01-UNITS_AND_MEASUREMENTS-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS02-MOTION_IN_A_STRAIGHT_LINE
+│   │       │   ├── PHYSICS02-MOTION_IN_A_STRAIGHT_LINE-GLOSSARY.md
+│   │       │   ├── PHYSICS02-MOTION_IN_A_STRAIGHT_LINE-NOTES.md
+│   │       │   ├── PHYSICS02-MOTION_IN_A_STRAIGHT_LINE-PQs.md
+│   │       │   └── PHYSICS02-MOTION_IN_A_STRAIGHT_LINE-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS03-MOTION_IN_A_PLANE
+│   │       │   ├── PHYSICS03-MOTION_IN_A_PLANE-GLOSSARY.md
+│   │       │   ├── PHYSICS03-MOTION_IN_A_PLANE-NOTES.md
+│   │       │   ├── PHYSICS03-MOTION_IN_A_PLANE-PQs.md
+│   │       │   └── PHYSICS03-MOTION_IN_A_PLANE-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS04-LAWS_OF_MOTION
+│   │       │   ├── PHYSICS04-LAWS_OF_MOTION-GLOSSARY.md
+│   │       │   ├── PHYSICS04-LAWS_OF_MOTION-NOTES.md
+│   │       │   ├── PHYSICS04-LAWS_OF_MOTION-PQs.md
+│   │       │   └── PHYSICS04-LAWS_OF_MOTION-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS05-WORK_ENERGY_AND_POWER
+│   │       │   ├── PHYSICS05-WORK_ENERGY_AND_POWER-GLOSSARY.md
+│   │       │   ├── PHYSICS05-WORK_ENERGY_AND_POWER-NOTES.md
+│   │       │   ├── PHYSICS05-WORK_ENERGY_AND_POWER-PQs.md
+│   │       │   └── PHYSICS05-WORK_ENERGY_AND_POWER-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS06-SYSTEM_OF_PARTICLES_AND_ROTATIONAL_MOTION
+│   │       │   ├── PHYSICS06-SYSTEM_OF_PARTICLES_AND_ROTATIONAL_MOTION-GLOSSARY.md
+│   │       │   ├── PHYSICS06-SYSTEM_OF_PARTICLES_AND_ROTATIONAL_MOTION-NOTES.md
+│   │       │   ├── PHYSICS06-SYSTEM_OF_PARTICLES_AND_ROTATIONAL_MOTION-PQs.md
+│   │       │   └── PHYSICS06-SYSTEM_OF_PARTICLES_AND_ROTATIONAL_MOTION-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS07-GRAVITATION
+│   │       │   ├── PHYSICS07-GRAVITATION-GLOSSARY.md
+│   │       │   ├── PHYSICS07-GRAVITATION-NOTES.md
+│   │       │   ├── PHYSICS07-GRAVITATION-PQs.md
+│   │       │   └── PHYSICS07-GRAVITATION-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS08-MECHANICAL_PROPERTIES_OF_SOLIDS
+│   │       │   ├── PHYSICS08-MECHANICAL_PROPERTIES_OF_SOLIDS-GLOSSARY.md
+│   │       │   ├── PHYSICS08-MECHANICAL_PROPERTIES_OF_SOLIDS-NOTES.md
+│   │       │   ├── PHYSICS08-MECHANICAL_PROPERTIES_OF_SOLIDS-PQs.md
+│   │       │   └── PHYSICS08-MECHANICAL_PROPERTIES_OF_SOLIDS-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS09-MECHANICAL_PROPERTIES_OF_FLUIDS
+│   │       │   ├── PHYSICS09-MECHANICAL_PROPERTIES_OF_FLUIDS-GLOSSARY.md
+│   │       │   ├── PHYSICS09-MECHANICAL_PROPERTIES_OF_FLUIDS-NOTES.md
+│   │       │   ├── PHYSICS09-MECHANICAL_PROPERTIES_OF_FLUIDS-PQs.md
+│   │       │   └── PHYSICS09-MECHANICAL_PROPERTIES_OF_FLUIDS-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS10-THERMAL_PROPERTIES_OF_MATTER
+│   │       │   ├── PHYSICS10-THERMAL_PROPERTIES_OF_MATTER-GLOSSARY.md
+│   │       │   ├── PHYSICS10-THERMAL_PROPERTIES_OF_MATTER-NOTES.md
+│   │       │   ├── PHYSICS10-THERMAL_PROPERTIES_OF_MATTER-PQs.md
+│   │       │   └── PHYSICS10-THERMAL_PROPERTIES_OF_MATTER-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS11-THERMODYNAMICS
+│   │       │   ├── PHYSICS11-THERMODYNAMICS-GLOSSARY.md
+│   │       │   ├── PHYSICS11-THERMODYNAMICS-NOTES.md
+│   │       │   ├── PHYSICS11-THERMODYNAMICS-PQs.md
+│   │       │   └── PHYSICS11-THERMODYNAMICS-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS12-KINETIC_THEORY
+│   │       │   ├── PHYSICS12-KINETIC_THEORY-GLOSSARY.md
+│   │       │   ├── PHYSICS12-KINETIC_THEORY-NOTES.md
+│   │       │   ├── PHYSICS12-KINETIC_THEORY-PQs.md
+│   │       │   └── PHYSICS12-KINETIC_THEORY-REVISION_MINDMAPS.md
+│   │       ├── PHYSICS13-OSCILLATIONS
+│   │       │   ├── PHYSICS13-OSCILLATIONS-GLOSSARY.md
+│   │       │   ├── PHYSICS13-OSCILLATIONS-NOTES.md
+│   │       │   ├── PHYSICS13-OSCILLATIONS-PQs.md
+│   │       │   └── PHYSICS13-OSCILLATIONS-REVISION_MINDMAPS.md
+│   │       └── PHYSICS14-WAVES
+│   │           ├── PHYSICS14-WAVES-GLOSSARY.md
+│   │           ├── PHYSICS14-WAVES-NOTES.md
+│   │           ├── PHYSICS14-WAVES-PQs.md
+│   │           └── PHYSICS14-WAVES-REVISION_MINDMAPS.md
+│   ├── NCERT-EXAMPLER
+│   │   ├── BIOLOGY
+│   │   │   ├── BIOLOGY-EXEMPLAR01-THE_LIVING_WORLD.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR02-BIOLOGICAL_CLASSIFICATION.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR03-PLANT_KINGDOM.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR04-ANIMAL_KINGDOM.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR05-MORPHOLOGY_OF_FLOWERING_PLANTS.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR06-ANATOMY_OF_FLOWERING_PLANTS.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR07-STRUCTURAL_ORGANISATION_IN_ANIMALS.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR08-CELL_THE_UNIT_OF_LIFE.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR09-BIOMOLECULES.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR10-CELL_CYCLE_AND_CELL_DIVISION.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR11-TRANSPORT_IN_PLANTS.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR12-MINERAL_NUTRITION.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR13-PHOTOSYNTHESIS_IN_HIGHER_PLANTS.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR14-RESPIRATION_IN_PLANTS.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR15-PLANT_GROWTH_AND_DEVELOPMENT.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR16-DIGESTION_AND_ABSORPTION.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR17-BREATHING_AND_EXCHANGE_OF_GASES.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR18-BODY_FLUIDS_AND_CIRCULATION.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR19-EXCRETORY_PRODUCTS_AND_THEIR_ELIMINATION.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR20-LOCOMOTION_AND_MOVEMENT.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR21-NEURAL_CONTROL_AND_COORDINATION.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR22-CHEMICAL_COORDINATION_AND_INTEGRATION.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR-ANSWERS_TO_MCQ.pdf
+│   │   │   ├── BIOLOGY-EXEMPLAR-MODEL_ANSWERS_DESCRIPTIVE.pdf
+│   │   │   └── BIOLOGY-EXEMPLAR-MODEL_QUESTION_PAPER.pdf
+│   │   ├── CHEMISTRY
+│   │   │   ├── CHEMISTRY-EXEMPLAR01-SOME_BASIC_CONCEPTS_OF_CHEMISTRY.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR02-STRUCTURE_OF_ATOM.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR03-CLASSIFICATION_OF_ELEMENTS_AND_PERIODICITY.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR04-CHEMICAL_BONDING_AND_MOLECULAR_STRUCTURE.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR05-STATES_OF_MATTER.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR06-THERMODYNAMICS.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR07-EQUILIBRIUM.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR08-REDOX_REACTIONS.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR09-HYDROGEN.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR10-S_BLOCK_ELEMENTS.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR11-P_BLOCK_ELEMENTS.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR12-ORGANIC_CHEMISTRY_BASIC_PRINCIPLES_AND_TECHNIQUES.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR13-HYDROCARBONS.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR14-ENVIRONMENTAL_CHEMISTRY.pdf
+│   │   │   ├── CHEMISTRY-EXEMPLAR-ANSWERS.pdf
+│   │   │   └── CHEMISTRY-EXEMPLAR-DESIGN_OF_QUESTION_PAPER.pdf
+│   │   ├── MATHEMATICS
+│   │   │   ├── MATHEMATICS-EXEMPLAR01-SETS.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR02-RELATIONS_AND_FUNCTIONS.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR03-TRIGONOMETRIC_FUNCTIONS.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR04-PRINCIPLE_OF_MATHEMATICAL_INDUCTION.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR05-COMPLEX_NUMBERS_AND_QUADRATIC_EQUATIONS.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR06-LINEAR_INEQUALITIES.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR07-PERMUTATIONS_AND_COMBINATIONS.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR08-BINOMIAL_THEOREM.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR09-SEQUENCES_AND_SERIES.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR10-STRAIGHT_LINES.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR11-CONIC_SECTIONS.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR12-INTRODUCTION_TO_3D_GEOMETRY.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR13-LIMITS_AND_DERIVATIVES.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR14-MATHEMATICAL_REASONING.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR15-STATISTICS.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR16-PROBABILITY.pdf
+│   │   │   ├── MATHEMATICS-EXEMPLAR-ANSWERS.pdf
+│   │   │   └── MATHEMATICS-EXEMPLAR-DESIGN_OF_QUESTION_PAPER.pdf
+│   │   └── PHYSICS
+│   │       ├── PHYSICS-EXEMPLAR01-PHYSICAL_WORLD.pdf
+│   │       ├── PHYSICS-EXEMPLAR02-UNITS_AND_MEASUREMENTS.pdf
+│   │       ├── PHYSICS-EXEMPLAR03-MOTION_IN_A_STRAIGHT_LINE.pdf
+│   │       ├── PHYSICS-EXEMPLAR04-MOTION_IN_A_PLANE.pdf
+│   │       ├── PHYSICS-EXEMPLAR05-LAWS_OF_MOTION.pdf
+│   │       ├── PHYSICS-EXEMPLAR06-WORK_ENERGY_AND_POWER.pdf
+│   │       ├── PHYSICS-EXEMPLAR07-SYSTEM_OF_PARTICLES_AND_ROTATIONAL_MOTION.pdf
+│   │       ├── PHYSICS-EXEMPLAR08-GRAVITATION.pdf
+│   │       ├── PHYSICS-EXEMPLAR09-MECHANICAL_PROPERTIES_OF_SOLIDS.pdf
+│   │       ├── PHYSICS-EXEMPLAR10-MECHANICAL_PROPERTIES_OF_FLUIDS.pdf
+│   │       ├── PHYSICS-EXEMPLAR11-THERMAL_PROPERTIES_OF_MATTER.pdf
+│   │       ├── PHYSICS-EXEMPLAR12-THERMODYNAMICS.pdf
+│   │       ├── PHYSICS-EXEMPLAR13-KINETIC_THEORY.pdf
+│   │       ├── PHYSICS-EXEMPLAR14-OSCILLATIONS.pdf
+│   │       ├── PHYSICS-EXEMPLAR15-WAVES.pdf
+│   │       ├── PHYSICS-EXEMPLAR-ANSWERS.pdf
+│   │       └── PHYSICS-EXEMPLAR-DESIGN_OF_QUESTION_PAPER.pdf
+│   └── NCERT-PDF
+│       ├── BIOLOGY
+│       │   ├── BIOLOGY01-THE_LIVING_WORLD.pdf
+│       │   ├── BIOLOGY02-BIOLOGICAL_CLASSIFICATION.pdf
+│       │   ├── BIOLOGY03-PLANT_KINGDOM.pdf
+│       │   ├── BIOLOGY04-ANIMAL_KINGDOM.pdf
+│       │   ├── BIOLOGY05-MORPHOLOGY_OF_FLOWERING_PLANTS.pdf
+│       │   ├── BIOLOGY06-ANATOMY_OF_FLOWERING_PLANTS.pdf
+│       │   ├── BIOLOGY07-STRUCTURAL_ORGANISATION_IN_ANIMALS.pdf
+│       │   ├── BIOLOGY08-CELL_THE_UNIT_OF_LIFE.pdf
+│       │   ├── BIOLOGY09-BIOMOLECULES.pdf
+│       │   ├── BIOLOGY10-CELL_CYCLE_AND_CELL_DIVISION.pdf
+│       │   ├── BIOLOGY11-TRANSPORT_IN_PLANTS.pdf
+│       │   ├── BIOLOGY12-MINERAL_NUTRITION.pdf
+│       │   ├── BIOLOGY13-PHOTOSYNTHESIS_IN_HIGHER_PLANTS.pdf
+│       │   ├── BIOLOGY14-RESPIRATION_IN_PLANTS.pdf
+│       │   ├── BIOLOGY15-PLANT_GROWTH_AND_DEVELOPMENT.pdf
+│       │   ├── BIOLOGY16-DIGESTION_AND_ABSORPTION.pdf
+│       │   ├── BIOLOGY17-BREATHING_AND_EXCHANGE_OF_GASES.pdf
+│       │   ├── BIOLOGY18-BODY_FLUIDS_AND_CIRCULATION.pdf
+│       │   └── BIOLOGY19-EXCRETORY_PRODUCTS_AND_THEIR_ELIMINATION.pdf
+│       ├── CHEMISTRY
+│       │   ├── CHEMISTRY01-SOME_BASIC_CONCEPTS_OF_CHEMISTRY.pdf
+│       │   ├── CHEMISTRY02-STRUCTURE_OF_ATOM.pdf
+│       │   ├── CHEMISTRY03-CLASSIFICATION_OF_ELEMENTS_AND_PERIODICITY.pdf
+│       │   ├── CHEMISTRY04-CHEMICAL_BONDING_AND_MOLECULAR_STRUCTURE.pdf
+│       │   ├── CHEMISTRY05-THERMODYNAMICS.pdf
+│       │   ├── CHEMISTRY06-EQUILIBRIUM.pdf
+│       │   ├── CHEMISTRY07-REDOX_REACTIONS.pdf
+│       │   ├── CHEMISTRY08-ORGANIC_CHEMISTRY_BASIC_PRINCIPLES_AND_TECHNIQUES.pdf
+│       │   ├── CHEMISTRY09-HYDROCARBONS.pdf
+│       │   ├── CHEMISTRY-ANSWERS-UII.pdf
+│       │   ├── CHEMISTRY-ANSWERS-UI.pdf
+│       │   └── CHEMISTRY-APPENDIX.pdf
+│       ├── COMPUTER-SCIENCE
+│       │   ├── CS01-COMPUTER_SYSTEM.pdf
+│       │   ├── CS02-ENCODING_SCHEMES_AND_NUMBER_SYSTEM.pdf
+│       │   ├── CS03-EMERGING_TRENDS.pdf
+│       │   ├── CS04-PROBLEM_SOLVING.pdf
+│       │   ├── CS05-GETTING_STARTED_WITH_PYTHON.pdf
+│       │   ├── CS06-FLOW_OF_CONTROL.pdf
+│       │   ├── CS07-FUNCTIONS.pdf
+│       │   ├── CS08-STRINGS.pdf
+│       │   ├── CS09-LISTS.pdf
+│       │   ├── CS10-TUPLES_AND_DICTIONARIES.pdf
+│       │   └── CS11-SOCIETAL_IMPACTS.pdf
+│       ├── MATHEMATICS
+│       │   ├── MATHEMATICS01-SETS.pdf
+│       │   ├── MATHEMATICS02-RELATIONS_AND_FUNCTIONS.pdf
+│       │   ├── MATHEMATICS03-TRIGONOMETRIC_FUNCTIONS.pdf
+│       │   ├── MATHEMATICS04-COMPLEX_NUMBERS_AND_QUADRATIC_EQUATIONS.pdf
+│       │   ├── MATHEMATICS05-LINEAR_INEQUALITIES.pdf
+│       │   ├── MATHEMATICS06-PERMUTATIONS_AND_COMBINATIONS.pdf
+│       │   ├── MATHEMATICS07-BINOMIAL_THEOREM.pdf
+│       │   ├── MATHEMATICS08-SEQUENCES_AND_SERIES.pdf
+│       │   ├── MATHEMATICS09-STRAIGHT_LINES.pdf
+│       │   ├── MATHEMATICS10-CONIC_SECTIONS.pdf
+│       │   ├── MATHEMATICS11-INTRODUCTION_TO_3D_GEOMETRY.pdf
+│       │   ├── MATHEMATICS12-LIMITS_AND_DERIVATIVES.pdf
+│       │   ├── MATHEMATICS13-STATISTICS.pdf
+│       │   ├── MATHEMATICS14-PROBABILITY.pdf
+│       │   ├── MATHEMATICS-ANSWERS.pdf
+│       │   ├── MATHEMATICS-APPENDIX1.pdf
+│       │   ├── MATHEMATICS-APPENDIX2.pdf
+│       │   └── MATHEMATICS-SUPPLEMENTARY.pdf
+│       └── PHYSICS
+│           ├── PHYSICS01-UNITS_AND_MEASUREMENTS.pdf
+│           ├── PHYSICS02-MOTION_IN_A_STRAIGHT_LINE.pdf
+│           ├── PHYSICS03-MOTION_IN_A_PLANE.pdf
+│           ├── PHYSICS04-LAWS_OF_MOTION.pdf
+│           ├── PHYSICS05-WORK_ENERGY_AND_POWER.pdf
+│           ├── PHYSICS06-SYSTEM_OF_PARTICLES_AND_ROTATIONAL_MOTION.pdf
+│           ├── PHYSICS07-GRAVITATION.pdf
+│           ├── PHYSICS08-MECHANICAL_PROPERTIES_OF_SOLIDS.pdf
+│           ├── PHYSICS09-MECHANICAL_PROPERTIES_OF_FLUIDS.pdf
+│           ├── PHYSICS10-THERMAL_PROPERTIES_OF_MATTER.pdf
+│           ├── PHYSICS11-THERMODYNAMICS.pdf
+│           ├── PHYSICS12-KINETIC_THEORY.pdf
+│           ├── PHYSICS13-OSCILLATIONS.pdf
+│           ├── PHYSICS14-WAVES.pdf
+│           ├── PHYSICS-ANSWERS-UII.pdf
+│           ├── PHYSICS-ANSWERS-UI.pdf
+│           └── PHYSICS-APPENDIX.pdf
+├── service-worker.js
+├── TEST
+│   ├── file_example_PPT_250kB.ppt
+│   ├── file_example_XLSX_10.xlsx
+│   ├── file-sample_100kB.docx
+│   ├── file-sample_150kB.pdf
+│   ├── MARKDOWN-1.md
+│   └── test-desmos.md
+├── tree.txt
+└── waiting-list
+    └── index.json
+
+506 directories, 2499 files
