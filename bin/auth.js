@@ -7,7 +7,7 @@ let currentSession = null;
 // /api/gh returns only the SAToken to the browser — the PAT stays server-side always.
 async function loadWmConfig() {
   try {
-    const r = await fetch('https://ada-one-rho.vercel.app/api/gh', {
+    const r = await fetch('https://notebooks-test.vercel.app/api/gh', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action: 'config' })
@@ -321,7 +321,7 @@ async function revokeAdmin(code) {
 // Returns { ok, data } or { ok: false, error }.
 async function ghProxy(action, payload = {}) {
   try {
-    const r = await fetch('https://ada-one-rho.vercel.app/api/gh', {
+    const r = await fetch('https://notebooks-test.vercel.app/api/gh', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ action, ...payload })
