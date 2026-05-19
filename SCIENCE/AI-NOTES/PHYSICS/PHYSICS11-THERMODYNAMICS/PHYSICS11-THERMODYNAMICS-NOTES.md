@@ -227,13 +227,16 @@ For 1 g of water at atmospheric pressure:
 ### 5.1 Heat Capacity (S) and Specific Heat Capacity (s)
 
 **Heat capacity** S of a body:
-$$S = \frac{\Delta Q}{\Delta T} \quad \text{(J K}^{-1}\text{)} \quad \text{...(11.3)}$$
+$$S = \frac{\Delta Q}{\Delta T} \quad \text{...(11.3)}$$
+Unit: J K⁻¹
 
 **Specific heat capacity** s (per unit mass):
-$$\boxed{s = \frac{1}{m}\frac{\Delta Q}{\Delta T}} \quad \text{(J kg}^{-1}\text{ K}^{-1}\text{)} \quad \text{...(11.4)}$$
+$$\boxed{s = \frac{1}{m}\frac{\Delta Q}{\Delta T}} \quad \text{...(11.4)}$$
+Unit: J kg⁻¹ K⁻¹
 
 **Molar specific heat capacity** C (per mole):
-$$\boxed{C = \frac{1}{\mu}\frac{\Delta Q}{\Delta T}} \quad \text{(J mol}^{-1}\text{ K}^{-1}\text{)} \quad \text{...(11.5)}$$
+$$\boxed{C = \frac{1}{\mu}\frac{\Delta Q}{\Delta T}} \quad \text{...(11.5)}$$
+Unit: J mol⁻¹ K⁻¹
 
 > [!important] Key Property
 > **C and s are independent of the amount of substance** (intensive properties) — characteristic of the material.
@@ -246,7 +249,8 @@ Using the **law of equipartition of energy** for a solid of N atoms, each vibrat
 - Total energy for 1 mole: $U = 3k_B T \times N_A = 3RT$
 
 At constant pressure (ΔV negligible for solids):
-$$\boxed{C = \frac{\Delta U}{\Delta T} = 3R \approx 24.9 \text{ J mol}^{-1}\text{K}^{-1}} \quad \text{...(11.6)}$$
+$$\boxed{C = \frac{\Delta U}{\Delta T} = 3R} \quad \text{...(11.6)}$$
+Value: $3R \approx 24.9$ J mol⁻¹ K⁻¹
 
 This is the **Dulong-Petit Law**. From Table 11.1:
 
@@ -595,18 +599,18 @@ $$\alpha = \frac{Q_2}{W} = \frac{Q_2}{Q_1 - Q_2} = \frac{T_2}{T_1 - T_2}$$
 
 ### Example 11.2 — Heat Supplied to Nitrogen at Constant Pressure (NCERT Ex. 11.2)
 
-**Given:** $m = 2.0 \times 10^{-2}\ \text{kg}$ of N₂; $\Delta T = 45°\text{C}$ at constant pressure; $M(N_2) = 28$; $R = 8.3\ \text{J mol}^{-1}\text{K}^{-1}$.
+**Given:** $m = 2.0 \times 10^{-2}$ kg of N₂; $\Delta T = 45°$C at constant pressure; $M(N_2) = 28$; $R = 8.3$ J mol⁻¹ K⁻¹.
 
-- $\mu = 0.02/0.028 = \textbf{0.714\ mol}$
-- For N₂ (diatomic): $C_v = (5/2)R$; $C_p = (7/2)R = 3.5 \times 8.3 = \textbf{29.05\ J\ mol}^{-1}\text{K}^{-1}$
-- $\Delta Q = \mu C_p \Delta T = 0.714 \times 29.05 \times 45 = \textbf{933 J} \approx 0.933\ \text{kJ}$
+- $\mu = 0.02/0.028 = \textbf{0.714}$ mol
+- For N₂ (diatomic): $C_v = (5/2)R$; $C_p = (7/2)R = 3.5 \times 8.3 = \textbf{29.05}$ J mol⁻¹ K⁻¹
+- $\Delta Q = \mu C_p \Delta T = 0.714 \times 29.05 \times 45 = \textbf{933}$ J $\approx 0.933$ kJ
 
 ### Example 11.3 — Geyser Fuel Consumption (NCERT Ex. 11.1)
 
-**Given:** Flow rate = 3.0 L/min; $T_1 = 27°\text{C}$; $T_2 = 77°\text{C}$; heat of combustion = $4.0 \times 10^4\ \text{J/g}$.
+**Given:** Flow rate = 3.0 L/min; $T_1 = 27°$C; $T_2 = 77°$C; heat of combustion = $4.0 \times 10^4$ J/g.
 
-- Heat needed per minute = mass × s × ΔT = $3000\ \text{g} \times 4.2\ \text{J/g°C} \times 50°\text{C} = 630{,}000\ \text{J/min}$
-- Rate of fuel consumption = $630{,}000 / (4.0 \times 10^4) = \textbf{15.75 g/min}$
+- Heat needed per minute = mass × s × ΔT = $3000 \times 4.2 \times 50 = 630{,}000$ J/min
+- Rate of fuel consumption = $630{,}000 / (4.0 \times 10^4) = \textbf{15.75}$ g/min
 
 ### Example 11.4 — Carnot Engine Efficiency
 
@@ -697,7 +701,7 @@ A device that converts heat into work in a cyclic process.
 >
 > $C = \Delta Q / (\mu\Delta T)$ — molar specific heat capacity
 >
-> For solids: $C = 3R \approx 24.9\ \text{J mol}^{-1}\text{K}^{-1}$ (Dulong-Petit)
+> For solids: $C = 3R \approx 24.9$ J mol⁻¹ K⁻¹ (Dulong-Petit)
 >
 > For ideal gas: $C_p - C_v = R$ (Mayer's relation)
 >
