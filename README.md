@@ -1,5 +1,5 @@
 # 📘 NoteBooks XI
- 
+
 > A structured knowledge system for students and educators.  
 > Designed to eliminate friction in sharing, accessing, and organizing study material.
 
