@@ -15,7 +15,10 @@ EXCLUDED_ROOT_FILES = {
     "obsidian-markdown-it.js",
     "fallback.html",
     "autopush.sh",
-    "installer.html"
+    "installer.html",
+    "package.json",
+    "package-lock.json"
+    "tree.txt"
 }
 
 EXCLUDED_ROOT_DIRS = {

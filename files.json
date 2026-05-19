@@ -2670,11 +2670,6 @@
     },
     {
       "type": "file",
-      "name": "package.json",
-      "path": "package.json"
-    },
-    {
-      "type": "file",
       "name": "tree.txt",
       "path": "tree.txt"
     }
