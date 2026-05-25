@@ -751,7 +751,7 @@ function maybeShowVercelPopup() {
 
 // --- Community ---
 function openCommunity() {
-  const path = 'community/community.html';
+  const path = 'primenotepad.rf.gd';
   if (isMobile) {
     openMobilePreview(path, 'Community 💬');
   } else {
