@@ -1,4 +1,5 @@
 # 🔺 CHAPTER 3 — TRIGONOMETRIC FUNCTIONS
+
 > **Complete Study Notes** | Board · NEET · JEE Layered
 > *Class XI Mathematics — NCERT*
 
@@ -98,7 +99,10 @@ flowchart TD
 > If a rotation from initial to terminal side is $\dfrac{1}{360}$ of a full revolution, the angle measures **1 degree** (written as 1°).
 >
 > **Subdivisions:**
-> $$1° = 60' \quad \text{(minutes)} \qquad 1' = 60'' \quad \text{(seconds)}$$
+>
+> $$
+> 1° = 60' \quad \text{(minutes)} \qquad 1' = 60'' \quad \text{(seconds)}
+> $$
 
 ---
 
@@ -108,7 +112,10 @@ flowchart TD
 > **1 radian** is the angle subtended at the centre of a **unit circle** (radius = 1) by an arc of length **1 unit**.
 >
 > For a circle of radius $r$, if arc length $l$ subtends angle $\theta$ at the centre:
-> $$\boxed{\theta = \frac{l}{r} \quad \Longleftrightarrow \quad l = r\theta}$$
+>
+> $$
+> \boxed{\theta = \frac{l}{r} \quad \Longleftrightarrow \quad l = r\theta}
+> $$
 
 ```tikz
 \usetikzlibrary{arrows.meta}
@@ -143,36 +150,46 @@ flowchart TD
 > [!important] Conversion Formulae
 > Since one complete revolution = $360°$ = $2\pi$ radians:
 >
-> $$\pi \text{ rad} = 180°$$
+> $$
+> \pi \text{ rad} = 180°
+> $$
 >
-> $$\boxed{\text{Radian} = \frac{\pi}{180} \times \text{Degree}} \qquad \boxed{\text{Degree} = \frac{180}{\pi} \times \text{Radian}}$$
+> $$
+> \boxed{\text{Radian} = \frac{\pi}{180} \times \text{Degree}} \qquad \boxed{\text{Degree} = \frac{180}{\pi} \times \text{Radian}}
+> $$
 >
 > Quick approximations: $1 \text{ rad} \approx 57°16'$ and $1° \approx 0.01746 \text{ rad}$
 
 **Standard Angle Table:**
 
-| Degree | $0°$ | $30°$ | $45°$ | $60°$ | $90°$ | $180°$ | $270°$ | $360°$ |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Radian | $0$ | $\dfrac{\pi}{6}$ | $\dfrac{\pi}{4}$ | $\dfrac{\pi}{3}$ | $\dfrac{\pi}{2}$ | $\pi$ | $\dfrac{3\pi}{2}$ | $2\pi$ |
+| Degree | $0°$ |      $30°$      |      $45°$      |      $60°$      |      $90°$      | $180°$ |      $270°$      | $360°$ |
+| :----: | :-----: | :----------------: | :----------------: | :----------------: | :----------------: | :-------: | :-----------------: | :-------: |
+| Radian |  $0$  | $\dfrac{\pi}{6}$ | $\dfrac{\pi}{4}$ | $\dfrac{\pi}{3}$ | $\dfrac{\pi}{2}$ |  $\pi$  | $\dfrac{3\pi}{2}$ | $2\pi$ |
 
 > [!example] Example 1 — Degree → Radian
 > Convert $40°20'$ to radians.
 >
 > $40°20' = 40\tfrac{1}{3}° = \dfrac{121}{3}°$
 >
-> $$\text{Radian} = \frac{\pi}{180} \times \frac{121}{3} = \frac{121\pi}{540} \text{ rad}$$
+> $$
+> \text{Radian} = \frac{\pi}{180} \times \frac{121}{3} = \frac{121\pi}{540} \text{ rad}
+> $$
 
 > [!example] Example 2 — Radian → Degree
 > Convert $6$ radians to degrees.
 >
-> $$6 \text{ rad} = \frac{180}{\pi} \times 6 = \frac{1080 \times 7}{22} \approx 343°38'11''$$
+> $$
+> 6 \text{ rad} = \frac{180}{\pi} \times 6 = \frac{1080 \times 7}{22} \approx 343°38'11''
+> $$
 
 > [!example] Example 3 — Arc Length
 > Find the radius of a circle where central angle $60°$ intercepts arc of $37.4$ cm.
 >
 > $\theta = 60° = \dfrac{\pi}{3}$ rad, $\quad l = 37.4$ cm
 >
-> $$r = \frac{l}{\theta} = \frac{37.4 \times 3}{\pi} = \frac{37.4 \times 3 \times 7}{22} = 35.7 \text{ cm}$$
+> $$
+> r = \frac{l}{\theta} = \frac{37.4 \times 3}{\pi} = \frac{37.4 \times 3 \times 7}{22} = 35.7 \text{ cm}
+> $$
 
 ---
 
@@ -183,10 +200,15 @@ flowchart TD
 > [!important] Definitions — Six Trig Functions
 > Consider a **unit circle** centred at the origin. Let $P(a, b)$ be any point on the circle with arc $AP = x$ (in radians). Then:
 >
-> $$\cos x = a \qquad \sin x = b$$
+> $$
+> \cos x = a \qquad \sin x = b
+> $$
 >
 > Since $a^2 + b^2 = 1$ for every point on the unit circle:
-> $$\boxed{\cos^2 x + \sin^2 x = 1}$$
+>
+> $$
+> \boxed{\cos^2 x + \sin^2 x = 1}
+> $$
 
 ```tikz
 \usetikzlibrary{arrows.meta}
@@ -220,10 +242,10 @@ flowchart TD
 
 **The Four Quadrantal Points:**
 
-| Angle | $0$ | $\dfrac{\pi}{2}$ | $\pi$ | $\dfrac{3\pi}{2}$ | $2\pi$ |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| $\cos$ | $1$ | $0$ | $-1$ | $0$ | $1$ |
-| $\sin$ | $0$ | $1$ | $0$ | $-1$ | $0$ |
+|  Angle  | $0$ | $\dfrac{\pi}{2}$ | $\pi$ | $\dfrac{3\pi}{2}$ | $2\pi$ |
+| :------: | :---: | :----------------: | :-----: | :-----------------: | :------: |
+| $\cos$ | $1$ |       $0$       | $-1$ |        $0$        |  $1$  |
+| $\sin$ | $0$ |       $1$       |  $0$  |       $-1$       |  $0$  |
 
 ---
 
@@ -232,13 +254,21 @@ flowchart TD
 > [!note] Other Four Functions
 > Defined from $\sin$ and $\cos$:
 >
-> $$\tan x = \frac{\sin x}{\cos x}, \quad x \neq (2n+1)\frac{\pi}{2}$$
+> $$
+> \tan x = \frac{\sin x}{\cos x}, \quad x \neq (2n+1)\frac{\pi}{2}
+> $$
 >
-> $$\cot x = \frac{\cos x}{\sin x}, \quad x \neq n\pi$$
+> $$
+> \cot x = \frac{\cos x}{\sin x}, \quad x \neq n\pi
+> $$
 >
-> $$\sec x = \frac{1}{\cos x}, \quad x \neq (2n+1)\frac{\pi}{2}$$
+> $$
+> \sec x = \frac{1}{\cos x}, \quad x \neq (2n+1)\frac{\pi}{2}
+> $$
 >
-> $$\text{cosec}\, x = \frac{1}{\sin x}, \quad x \neq n\pi$$
+> $$
+> \text{cosec}\, x = \frac{1}{\sin x}, \quad x \neq n\pi
+> $$
 >
 > where $n$ is any integer.
 
@@ -246,14 +276,14 @@ flowchart TD
 
 ### 2.3 Standard Values Table ⭐⭐⭐
 
-| | $0°$ | $30°\,\left(\frac{\pi}{6}\right)$ | $45°\,\left(\frac{\pi}{4}\right)$ | $60°\,\left(\frac{\pi}{3}\right)$ | $90°\,\left(\frac{\pi}{2}\right)$ |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| $\sin$ | $0$ | $\dfrac{1}{2}$ | $\dfrac{1}{\sqrt{2}}$ | $\dfrac{\sqrt{3}}{2}$ | $1$ |
-| $\cos$ | $1$ | $\dfrac{\sqrt{3}}{2}$ | $\dfrac{1}{\sqrt{2}}$ | $\dfrac{1}{2}$ | $0$ |
-| $\tan$ | $0$ | $\dfrac{1}{\sqrt{3}}$ | $1$ | $\sqrt{3}$ | ND |
-| $\cot$ | ND | $\sqrt{3}$ | $1$ | $\dfrac{1}{\sqrt{3}}$ | $0$ |
-| $\sec$ | $1$ | $\dfrac{2}{\sqrt{3}}$ | $\sqrt{2}$ | $2$ | ND |
-| $\text{cosec}$ | ND | $2$ | $\sqrt{2}$ | $\dfrac{2}{\sqrt{3}}$ | $1$ |
+|                  | $0°$ | $30°\,\left(\frac{\pi}{6}\right)$ | $45°\,\left(\frac{\pi}{4}\right)$ | $60°\,\left(\frac{\pi}{3}\right)$ | $90°\,\left(\frac{\pi}{2}\right)$ |
+| :--------------: | :-----: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
+|     $\sin$     |  $0$  |           $\dfrac{1}{2}$           |       $\dfrac{1}{\sqrt{2}}$       |       $\dfrac{\sqrt{3}}{2}$       |                $1$                |
+|     $\cos$     |  $1$  |       $\dfrac{\sqrt{3}}{2}$       |       $\dfrac{1}{\sqrt{2}}$       |           $\dfrac{1}{2}$           |                $0$                |
+|     $\tan$     |  $0$  |       $\dfrac{1}{\sqrt{3}}$       |                $1$                |             $\sqrt{3}$             |                  ND                  |
+|     $\cot$     |   ND   |             $\sqrt{3}$             |                $1$                |       $\dfrac{1}{\sqrt{3}}$       |                $0$                |
+|     $\sec$     |  $1$  |       $\dfrac{2}{\sqrt{3}}$       |             $\sqrt{2}$             |                $2$                |                  ND                  |
+| $\text{cosec}$ |   ND   |                $2$                |             $\sqrt{2}$             |       $\dfrac{2}{\sqrt{3}}$       |                $1$                |
 
 > [!warning] Memory Trick for sin
 > **"0, 1, 2, 3, 4 under root, divided by 2"**
@@ -266,6 +296,7 @@ flowchart TD
 ### 2.4 Signs in Quadrants ⭐⭐⭐
 
 > [!important] ASTC Rule — "All Students Take Calculus"
+>
 > - **Quadrant I** — **A**ll positive
 > - **Quadrant II** — **S**in (and cosec) positive
 > - **Quadrant III** — **T**an (and cot) positive
@@ -314,29 +345,30 @@ flowchart TD
 
 **Sign Chart:**
 
-| Function | Q I | Q II | Q III | Q IV |
-|:---:|:---:|:---:|:---:|:---:|
-| $\sin x$ | $+$ | $+$ | $-$ | $-$ |
-| $\cos x$ | $+$ | $-$ | $-$ | $+$ |
-| $\tan x$ | $+$ | $-$ | $+$ | $-$ |
+|       Function       |  Q I  | Q II | Q III | Q IV |
+| :------------------: | :---: | :---: | :---: | :---: |
+|      $\sin x$      | $+$ | $+$ | $-$ | $-$ |
+|      $\cos x$      | $+$ | $-$ | $-$ | $+$ |
+|      $\tan x$      | $+$ | $-$ | $+$ | $-$ |
 | $\text{cosec}\, x$ | $+$ | $+$ | $-$ | $-$ |
-| $\sec x$ | $+$ | $-$ | $-$ | $+$ |
-| $\cot x$ | $+$ | $-$ | $+$ | $-$ |
+|      $\sec x$      | $+$ | $-$ | $-$ | $+$ |
+|      $\cot x$      | $+$ | $-$ | $+$ | $-$ |
 
 ---
 
 ### 2.5 Domain & Range ⭐⭐
 
-| Function | Domain | Range |
-|:---:|:---|:---:|
-| $\sin x$ | $\mathbb{R}$ | $[-1,\, 1]$ |
-| $\cos x$ | $\mathbb{R}$ | $[-1,\, 1]$ |
-| $\tan x$ | $\mathbb{R} \setminus \{(2n+1)\tfrac{\pi}{2}\}$ | $\mathbb{R}$ |
-| $\cot x$ | $\mathbb{R} \setminus \{n\pi\}$ | $\mathbb{R}$ |
-| $\sec x$ | $\mathbb{R} \setminus \{(2n+1)\tfrac{\pi}{2}\}$ | $(-\infty,-1]\cup[1,\infty)$ |
-| $\text{cosec}\, x$ | $\mathbb{R} \setminus \{n\pi\}$ | $(-\infty,-1]\cup[1,\infty)$ |
+|       Function       | Domain                                            |             Range             |
+| :------------------: | :------------------------------------------------ | :----------------------------: |
+|      $\sin x$      | $\mathbb{R}$                                    |         $[-1,\, 1]$         |
+|      $\cos x$      | $\mathbb{R}$                                    |         $[-1,\, 1]$         |
+|      $\tan x$      | $\mathbb{R} \setminus \{(2n+1)\tfrac{\pi}{2}\}$ |         $\mathbb{R}$         |
+|      $\cot x$      | $\mathbb{R} \setminus \{n\pi\}$                 |         $\mathbb{R}$         |
+|      $\sec x$      | $\mathbb{R} \setminus \{(2n+1)\tfrac{\pi}{2}\}$ | $(-\infty,-1]\cup[1,\infty)$ |
+| $\text{cosec}\, x$ | $\mathbb{R} \setminus \{n\pi\}$                 | $(-\infty,-1]\cup[1,\infty)$ |
 
 > [!note] Periodicity
+>
 > - $\sin x$, $\cos x$, $\text{cosec}\, x$, $\sec x$ have period $\mathbf{2\pi}$
 > - $\tan x$, $\cot x$ have period $\boldsymbol{\pi}$
 
@@ -418,11 +450,17 @@ flowchart TD
 
 > [!important] Pythagorean Identities — MUST MEMORISE
 >
-> $$\boxed{\sin^2 x + \cos^2 x = 1}$$
+> $$
+> \boxed{\sin^2 x + \cos^2 x = 1}
+> $$
 >
-> $$\boxed{1 + \tan^2 x = \sec^2 x}$$
+> $$
+> \boxed{1 + \tan^2 x = \sec^2 x}
+> $$
 >
-> $$\boxed{1 + \cot^2 x = \text{cosec}^2\, x}$$
+> $$
+> \boxed{1 + \cot^2 x = \text{cosec}^2\, x}
+> $$
 
 > [!note] Derivation of 2nd and 3rd identities
 > Divide the first identity by $\cos^2 x$ to get the second, and by $\sin^2 x$ to get the third.
@@ -433,11 +471,17 @@ flowchart TD
 
 > [!important] Even / Odd Properties
 >
-> $$\sin(-x) = -\sin x \quad \text{(odd function)}$$
+> $$
+> \sin(-x) = -\sin x \quad \text{(odd function)}
+> $$
 >
-> $$\cos(-x) = \cos x \quad \text{(even function)}$$
+> $$
+> \cos(-x) = \cos x \quad \text{(even function)}
+> $$
 >
-> $$\tan(-x) = -\tan x, \quad \cot(-x) = -\cot x, \quad \sec(-x) = \sec x, \quad \text{cosec}(-x) = -\text{cosec}\,x$$
+> $$
+> \tan(-x) = -\tan x, \quad \cot(-x) = -\cot x, \quad \sec(-x) = \sec x, \quad \text{cosec}(-x) = -\text{cosec}\,x
+> $$
 
 ---
 
@@ -472,18 +516,19 @@ flowchart TD
 
 **Complete Allied Angle Table:**
 
-| Transformation | $\sin$ | $\cos$ | $\tan$ |
-|:---:|:---:|:---:|:---:|
+|     Transformation     |  $\sin$  |  $\cos$  |  $\tan$  |
+| :---------------------: | :---------: | :---------: | :---------: |
 | $\dfrac{\pi}{2} - x$ | $\cos x$ | $\sin x$ | $\cot x$ |
 | $\dfrac{\pi}{2} + x$ | $\cos x$ | $-\sin x$ | $-\cot x$ |
-| $\pi - x$ | $\sin x$ | $-\cos x$ | $-\tan x$ |
-| $\pi + x$ | $-\sin x$ | $-\cos x$ | $\tan x$ |
+|       $\pi - x$       | $\sin x$ | $-\cos x$ | $-\tan x$ |
+|       $\pi + x$       | $-\sin x$ | $-\cos x$ | $\tan x$ |
 | $\dfrac{3\pi}{2} - x$ | $-\cos x$ | $-\sin x$ | $\cot x$ |
 | $\dfrac{3\pi}{2} + x$ | $-\cos x$ | $\sin x$ | $-\cot x$ |
-| $2\pi - x$ | $-\sin x$ | $\cos x$ | $-\tan x$ |
+|      $2\pi - x$      | $-\sin x$ | $\cos x$ | $-\tan x$ |
 
 > [!warning] Key Memory Rule for Allied Angles
 > **Step 1:** Check if the multiple of $\dfrac{\pi}{2}$ is odd or even.
+>
 > - **Odd multiple** → function changes (sin↔cos, tan↔cot, sec↔cosec)
 > - **Even multiple** → function stays the same
 >
@@ -497,25 +542,43 @@ flowchart TD
 
 > [!important] Addition Formulas — The Most Important Set
 >
-> $$\boxed{\cos(x+y) = \cos x\cos y - \sin x\sin y}$$
+> $$
+> \boxed{\cos(x+y) = \cos x\cos y - \sin x\sin y}
+> $$
 >
-> $$\boxed{\cos(x-y) = \cos x\cos y + \sin x\sin y}$$
+> $$
+> \boxed{\cos(x-y) = \cos x\cos y + \sin x\sin y}
+> $$
 >
-> $$\boxed{\sin(x+y) = \sin x\cos y + \cos x\sin y}$$
+> $$
+> \boxed{\sin(x+y) = \sin x\cos y + \cos x\sin y}
+> $$
 >
-> $$\boxed{\sin(x-y) = \sin x\cos y - \cos x\sin y}$$
+> $$
+> \boxed{\sin(x-y) = \sin x\cos y - \cos x\sin y}
+> $$
 >
-> $$\boxed{\tan(x+y) = \frac{\tan x + \tan y}{1 - \tan x\tan y}}$$
+> $$
+> \boxed{\tan(x+y) = \frac{\tan x + \tan y}{1 - \tan x\tan y}}
+> $$
 >
-> $$\boxed{\tan(x-y) = \frac{\tan x - \tan y}{1 + \tan x\tan y}}$$
+> $$
+> \boxed{\tan(x-y) = \frac{\tan x - \tan y}{1 + \tan x\tan y}}
+> $$
 >
-> $$\cot(x+y) = \frac{\cot x\cot y - 1}{\cot y + \cot x}$$
+> $$
+> \cot(x+y) = \frac{\cot x\cot y - 1}{\cot y + \cot x}
+> $$
 
 > [!example] Example — Find $\sin 15°$
 >
-> $$\sin 15° = \sin(45° - 30°) = \sin 45°\cos 30° - \cos 45°\sin 30°$$
+> $$
+> \sin 15° = \sin(45° - 30°) = \sin 45°\cos 30° - \cos 45°\sin 30°
+> $$
 >
-> $$= \frac{1}{\sqrt{2}}\cdot\frac{\sqrt{3}}{2} - \frac{1}{\sqrt{2}}\cdot\frac{1}{2} = \frac{\sqrt{3}-1}{2\sqrt{2}}$$
+> $$
+> = \frac{1}{\sqrt{2}}\cdot\frac{\sqrt{3}}{2} - \frac{1}{\sqrt{2}}\cdot\frac{1}{2} = \frac{\sqrt{3}-1}{2\sqrt{2}}
+> $$
 
 > [!example] Example — Find $\tan\dfrac{13\pi}{12}$
 >
@@ -523,7 +586,9 @@ flowchart TD
 >
 > Since $\tan(\pi + x) = \tan x$:
 >
-> $$\tan\frac{13\pi}{12} = \tan\left(\frac{\pi}{4}-\frac{\pi}{6}\right) = \frac{1 - \frac{1}{\sqrt{3}}}{1 + \frac{1}{\sqrt{3}}} = \frac{\sqrt{3}-1}{\sqrt{3}+1} = 2-\sqrt{3}$$
+> $$
+> \tan\frac{13\pi}{12} = \tan\left(\frac{\pi}{4}-\frac{\pi}{6}\right) = \frac{1 - \frac{1}{\sqrt{3}}}{1 + \frac{1}{\sqrt{3}}} = \frac{\sqrt{3}-1}{\sqrt{3}+1} = 2-\sqrt{3}
+> $$
 
 ---
 
@@ -534,13 +599,22 @@ flowchart TD
 > [!important] Double Angle — Derived by substituting $y = x$ in sum formulas
 >
 > **For $\cos 2x$** (four equivalent forms):
-> $$\boxed{\cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x = \frac{1-\tan^2 x}{1+\tan^2 x}}$$
+>
+> $$
+> \boxed{\cos 2x = \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x = \frac{1-\tan^2 x}{1+\tan^2 x}}
+> $$
 >
 > **For $\sin 2x$:**
-> $$\boxed{\sin 2x = 2\sin x\cos x = \frac{2\tan x}{1+\tan^2 x}}$$
+>
+> $$
+> \boxed{\sin 2x = 2\sin x\cos x = \frac{2\tan x}{1+\tan^2 x}}
+> $$
 >
 > **For $\tan 2x$:**
-> $$\boxed{\tan 2x = \frac{2\tan x}{1-\tan^2 x}}$$
+>
+> $$
+> \boxed{\tan 2x = \frac{2\tan x}{1-\tan^2 x}}
+> $$
 
 > [!note] Useful rearrangements
 >
@@ -556,11 +630,17 @@ flowchart TD
 
 > [!important] Triple Angle — Derived from $f(2x+x)$
 >
-> $$\boxed{\sin 3x = 3\sin x - 4\sin^3 x}$$
+> $$
+> \boxed{\sin 3x = 3\sin x - 4\sin^3 x}
+> $$
 >
-> $$\boxed{\cos 3x = 4\cos^3 x - 3\cos x}$$
+> $$
+> \boxed{\cos 3x = 4\cos^3 x - 3\cos x}
+> $$
 >
-> $$\boxed{\tan 3x = \frac{3\tan x - \tan^3 x}{1 - 3\tan^2 x}}$$
+> $$
+> \boxed{\tan 3x = \frac{3\tan x - \tan^3 x}{1 - 3\tan^2 x}}
+> $$
 
 > [!example] Example — Prove identity
 > **Show:** $\tan 3x\cdot\tan 2x\cdot\tan x = \tan 3x - \tan 2x - \tan x$
@@ -579,13 +659,21 @@ flowchart TD
 
 > [!important] Sum-to-Product (Identity 20)
 >
-> $$\boxed{\cos x + \cos y = 2\cos\frac{x+y}{2}\cos\frac{x-y}{2}}$$
+> $$
+> \boxed{\cos x + \cos y = 2\cos\frac{x+y}{2}\cos\frac{x-y}{2}}
+> $$
 >
-> $$\boxed{\cos x - \cos y = -2\sin\frac{x+y}{2}\sin\frac{x-y}{2}}$$
+> $$
+> \boxed{\cos x - \cos y = -2\sin\frac{x+y}{2}\sin\frac{x-y}{2}}
+> $$
 >
-> $$\boxed{\sin x + \sin y = 2\sin\frac{x+y}{2}\cos\frac{x-y}{2}}$$
+> $$
+> \boxed{\sin x + \sin y = 2\sin\frac{x+y}{2}\cos\frac{x-y}{2}}
+> $$
 >
-> $$\boxed{\sin x - \sin y = 2\cos\frac{x+y}{2}\sin\frac{x-y}{2}}$$
+> $$
+> \boxed{\sin x - \sin y = 2\cos\frac{x+y}{2}\sin\frac{x-y}{2}}
+> $$
 
 ---
 
@@ -593,13 +681,21 @@ flowchart TD
 
 > [!important] Product-to-Sum (Identity 21)
 >
-> $$2\cos x\cos y = \cos(x+y) + \cos(x-y)$$
+> $$
+> 2\cos x\cos y = \cos(x+y) + \cos(x-y)
+> $$
 >
-> $$-2\sin x\sin y = \cos(x+y) - \cos(x-y)$$
+> $$
+> -2\sin x\sin y = \cos(x+y) - \cos(x-y)
+> $$
 >
-> $$2\sin x\cos y = \sin(x+y) + \sin(x-y)$$
+> $$
+> 2\sin x\cos y = \sin(x+y) + \sin(x-y)
+> $$
 >
-> $$2\cos x\sin y = \sin(x+y) - \sin(x-y)$$
+> $$
+> 2\cos x\sin y = \sin(x+y) - \sin(x-y)
+> $$
 
 > [!example] Example — Prove it
 > **Prove:** $\dfrac{\cos 7x + \cos 5x}{\sin 7x - \sin 5x} = \cot x$
@@ -608,7 +704,9 @@ flowchart TD
 >
 > **Denominator:** $\sin 7x - \sin 5x = 2\cos 6x\sin x$
 >
-> $$\therefore \frac{2\cos 6x\cos x}{2\cos 6x\sin x} = \frac{\cos x}{\sin x} = \cot x \quad\blacksquare$$
+> $$
+> \therefore \frac{2\cos 6x\cos x}{2\cos 6x\sin x} = \frac{\cos x}{\sin x} = \cot x \quad\blacksquare
+> $$
 
 ---
 
@@ -619,10 +717,16 @@ flowchart TD
 > Let $x = \dfrac{\pi}{8}$, so $2x = \dfrac{\pi}{4}$.
 >
 > From $\tan 2x = \dfrac{2\tan x}{1-\tan^2 x}$:
-> $$1 = \frac{2y}{1-y^2} \quad \Rightarrow \quad y^2 + 2y - 1 = 0 \quad \Rightarrow \quad y = -1\pm\sqrt{2}$$
+>
+> $$
+> 1 = \frac{2y}{1-y^2} \quad \Rightarrow \quad y^2 + 2y - 1 = 0 \quad \Rightarrow \quad y = -1\pm\sqrt{2}
+> $$
 >
 > Since $\dfrac{\pi}{8}$ is in Q1, $y > 0$:
-> $$\boxed{\tan\frac{\pi}{8} = \sqrt{2}-1}$$
+>
+> $$
+> \boxed{\tan\frac{\pi}{8} = \sqrt{2}-1}
+> $$
 
 > [!example] Given $\tan x = \dfrac{3}{4}$, $\pi < x < \dfrac{3\pi}{2}$ — find $\sin\dfrac{x}{2}$, $\cos\dfrac{x}{2}$, $\tan\dfrac{x}{2}$
 >
@@ -630,11 +734,17 @@ flowchart TD
 >
 > $x \in (\pi, \tfrac{3\pi}{2}) \Rightarrow \tfrac{x}{2} \in (\tfrac{\pi}{2}, \tfrac{3\pi}{4})$ → Q2, so $\sin\tfrac{x}{2} > 0$, $\cos\tfrac{x}{2} < 0$
 >
-> $$\sin^2\frac{x}{2} = \frac{1-\cos x}{2} = \frac{1+\frac{4}{5}}{2} = \frac{9}{10} \quad\Rightarrow\quad \sin\frac{x}{2} = \frac{3}{\sqrt{10}}$$
+> $$
+> \sin^2\frac{x}{2} = \frac{1-\cos x}{2} = \frac{1+\frac{4}{5}}{2} = \frac{9}{10} \quad\Rightarrow\quad \sin\frac{x}{2} = \frac{3}{\sqrt{10}}
+> $$
 >
-> $$\cos^2\frac{x}{2} = \frac{1+\cos x}{2} = \frac{1-\frac{4}{5}}{2} = \frac{1}{10} \quad\Rightarrow\quad \cos\frac{x}{2} = -\frac{1}{\sqrt{10}}$$
+> $$
+> \cos^2\frac{x}{2} = \frac{1+\cos x}{2} = \frac{1-\frac{4}{5}}{2} = \frac{1}{10} \quad\Rightarrow\quad \cos\frac{x}{2} = -\frac{1}{\sqrt{10}}
+> $$
 >
-> $$\tan\frac{x}{2} = \frac{\sin\frac{x}{2}}{\cos\frac{x}{2}} = \frac{3}{\sqrt{10}} \cdot (-\sqrt{10}) = -3$$
+> $$
+> \tan\frac{x}{2} = \frac{\sin\frac{x}{2}}{\cos\frac{x}{2}} = \frac{3}{\sqrt{10}} \cdot (-\sqrt{10}) = -3
+> $$
 
 ---
 
@@ -758,9 +868,13 @@ flowchart TD
 >
 > Use $\cos^2\theta = \dfrac{1+\cos 2\theta}{2}$ on each term:
 >
-> $$\text{LHS} = \frac{1+\cos 2x}{2} + \frac{1+\cos(2x+\frac{2\pi}{3})}{2} + \frac{1+\cos(2x-\frac{2\pi}{3})}{2}$$
+> $$
+> \text{LHS} = \frac{1+\cos 2x}{2} + \frac{1+\cos(2x+\frac{2\pi}{3})}{2} + \frac{1+\cos(2x-\frac{2\pi}{3})}{2}
+> $$
 >
-> $$= \frac{3}{2} + \frac{1}{2}\left[\cos 2x + \cos\!\left(2x+\frac{2\pi}{3}\right) + \cos\!\left(2x-\frac{2\pi}{3}\right)\right]$$
+> $$
+> = \frac{3}{2} + \frac{1}{2}\left[\cos 2x + \cos\!\left(2x+\frac{2\pi}{3}\right) + \cos\!\left(2x-\frac{2\pi}{3}\right)\right]
+> $$
 >
 > The bracket: use $\cos A + \cos B = 2\cos\tfrac{A+B}{2}\cos\tfrac{A-B}{2}$:
 >
@@ -768,7 +882,9 @@ flowchart TD
 >
 > $\therefore$ Bracket $= \cos 2x - \cos 2x = 0$
 >
-> $$\text{LHS} = \frac{3}{2} + 0 = \frac{3}{2} = \text{RHS} \quad\blacksquare$$
+> $$
+> \text{LHS} = \frac{3}{2} + 0 = \frac{3}{2} = \text{RHS} \quad\blacksquare
+> $$
 
 > [!example] Problem 3 — Simplify using periodicity
 > Find $\cos(-1710°)$.
@@ -783,48 +899,48 @@ flowchart TD
 
 ### Fundamental Identities
 
-| Identity | Formula |
-|:---|:---|
-| Pythagorean I | $\sin^2 x + \cos^2 x = 1$ |
-| Pythagorean II | $1 + \tan^2 x = \sec^2 x$ |
-| Pythagorean III | $1 + \cot^2 x = \text{cosec}^2\, x$ |
-| Even/Odd | $\sin(-x) = -\sin x;\quad \cos(-x) = \cos x$ |
-| Periodicity | $\sin(2n\pi+x)=\sin x;\quad \cos(2n\pi+x)=\cos x$ |
+| Identity        | Formula                                             |
+| :-------------- | :-------------------------------------------------- |
+| Pythagorean I   | $\sin^2 x + \cos^2 x = 1$                         |
+| Pythagorean II  | $1 + \tan^2 x = \sec^2 x$                         |
+| Pythagorean III | $1 + \cot^2 x = \text{cosec}^2\, x$               |
+| Even/Odd        | $\sin(-x) = -\sin x;\quad \cos(-x) = \cos x$      |
+| Periodicity     | $\sin(2n\pi+x)=\sin x;\quad \cos(2n\pi+x)=\cos x$ |
 
 ### Addition Formulas
 
-| Identity | Formula |
-|:---|:---|
-| $\cos(x\pm y)$ | $\cos x\cos y \mp \sin x\sin y$ |
-| $\sin(x\pm y)$ | $\sin x\cos y \pm \cos x\sin y$ |
-| $\tan(x+y)$ | $\dfrac{\tan x+\tan y}{1-\tan x\tan y}$ |
-| $\tan(x-y)$ | $\dfrac{\tan x-\tan y}{1+\tan x\tan y}$ |
-| $\cot(x+y)$ | $\dfrac{\cot x\cot y-1}{\cot y+\cot x}$ |
+| Identity         | Formula                                   |
+| :--------------- | :---------------------------------------- |
+| $\cos(x\pm y)$ | $\cos x\cos y \mp \sin x\sin y$         |
+| $\sin(x\pm y)$ | $\sin x\cos y \pm \cos x\sin y$         |
+| $\tan(x+y)$    | $\dfrac{\tan x+\tan y}{1-\tan x\tan y}$ |
+| $\tan(x-y)$    | $\dfrac{\tan x-\tan y}{1+\tan x\tan y}$ |
+| $\cot(x+y)$    | $\dfrac{\cot x\cot y-1}{\cot y+\cot x}$ |
 
 ### Double/Triple Angle
 
-| Identity | Formula |
-|:---|:---|
-| $\sin 2x$ | $2\sin x\cos x = \dfrac{2\tan x}{1+\tan^2 x}$ |
+| Identity    | Formula                                                                            |
+| :---------- | :--------------------------------------------------------------------------------- |
+| $\sin 2x$ | $2\sin x\cos x = \dfrac{2\tan x}{1+\tan^2 x}$                                    |
 | $\cos 2x$ | $\cos^2 x-\sin^2 x = 2\cos^2 x-1 = 1-2\sin^2 x = \dfrac{1-\tan^2 x}{1+\tan^2 x}$ |
-| $\tan 2x$ | $\dfrac{2\tan x}{1-\tan^2 x}$ |
-| $\sin 3x$ | $3\sin x - 4\sin^3 x$ |
-| $\cos 3x$ | $4\cos^3 x - 3\cos x$ |
-| $\tan 3x$ | $\dfrac{3\tan x-\tan^3 x}{1-3\tan^2 x}$ |
+| $\tan 2x$ | $\dfrac{2\tan x}{1-\tan^2 x}$                                                    |
+| $\sin 3x$ | $3\sin x - 4\sin^3 x$                                                            |
+| $\cos 3x$ | $4\cos^3 x - 3\cos x$                                                            |
+| $\tan 3x$ | $\dfrac{3\tan x-\tan^3 x}{1-3\tan^2 x}$                                          |
 
 ### Sum-to-Product
 
-| Identity | Formula |
-|:---|:---|
-| $\sin x+\sin y$ | $2\sin\tfrac{x+y}{2}\cos\tfrac{x-y}{2}$ |
-| $\sin x-\sin y$ | $2\cos\tfrac{x+y}{2}\sin\tfrac{x-y}{2}$ |
-| $\cos x+\cos y$ | $2\cos\tfrac{x+y}{2}\cos\tfrac{x-y}{2}$ |
+| Identity          | Formula                                    |
+| :---------------- | :----------------------------------------- |
+| $\sin x+\sin y$ | $2\sin\tfrac{x+y}{2}\cos\tfrac{x-y}{2}$  |
+| $\sin x-\sin y$ | $2\cos\tfrac{x+y}{2}\sin\tfrac{x-y}{2}$  |
+| $\cos x+\cos y$ | $2\cos\tfrac{x+y}{2}\cos\tfrac{x-y}{2}$  |
 | $\cos x-\cos y$ | $-2\sin\tfrac{x+y}{2}\sin\tfrac{x-y}{2}$ |
 
 ### Product-to-Sum
 
-| Identity | Formula |
-|:---|:---|
+| Identity          | Formula                 |
+| :---------------- | :---------------------- |
 | $2\sin x\cos y$ | $\sin(x+y)+\sin(x-y)$ |
 | $2\cos x\cos y$ | $\cos(x+y)+\cos(x-y)$ |
 | $2\sin x\sin y$ | $\cos(x-y)-\cos(x+y)$ |

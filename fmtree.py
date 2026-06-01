@@ -26,7 +26,8 @@ EXCLUDED_ROOT_DIRS = {
     "waiting-list",
     "api",
     "node_modules",
-    "bin"
+    "bin",
+    "GH Fix"
 }
 
 def build_tree(path, rel_path=""):

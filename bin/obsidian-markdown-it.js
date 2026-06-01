@@ -780,26 +780,9 @@
       var centerX = wrap.clientWidth / 2;
       var centerY = wrap.clientHeight / 2;
       
-      tx = centerX - r * (ox - tx + centerX);
-      ty = centerY - r * (oy - ty + centerY);
+      tx = (1 - r) * (ox - centerX) + r * tx;
+      ty = (1 - r) * (oy - centerY) + r * ty
       scale = ns;
-      applyTransform();
-    }
-
-    function fitToView() {
-      /* Use getAttribute first — Mermaid always writes explicit w/h */
-      var svgW = parseFloat(svg.getAttribute('width'))  || svg.getBBox().width  || 600;
-      var svgH = parseFloat(svg.getAttribute('height')) || svg.getBBox().height || 400;
-      var wrapW = wrap.clientWidth  || 600;
-      var wrapH = wrap.clientHeight || 400;
-      var pad   = 48;
-      var ns = Math.min((wrapW - pad) / svgW, (wrapH - pad) / svgH, 1.8);
-      ns = Math.max(ns, 0.08);
-      scale = ns;
-      
-      /* With absolute positioning at top:50%, left:50%, we need to offset by half the scaled size */
-      tx = -(svgW * scale) / 2;
-      ty = -(svgH * scale) / 2;
       applyTransform();
     }
 
@@ -872,13 +855,78 @@
       btn.addEventListener('click', function (e) { e.stopPropagation(); tbClick(btn.dataset.a); });
     });
 
-    /* Initial fit */
-    requestAnimationFrame(fitToView);
+    var fitAttempts = 0;
+    function fitToView() {
+      var svgW = parseFloat(svg.getAttribute('width'))  || 0;
+      var svgH = parseFloat(svg.getAttribute('height')) || 0;
+      
+      /* viewBox fallback — mindmaps often omit explicit w/h */
+      if (!svgW || !svgH) {
+        var vb = svg.getAttribute('viewBox');
+        if (vb) {
+          var pts = vb.trim().split(/[\s,]+/);
+          svgW = parseFloat(pts[2]) || 0;
+          svgH = parseFloat(pts[3]) || 0;
+        }
+      }
+      /* getBBox / getBoundingClientRect as last resort */
+      if (!svgW || !svgH) {
+        try { var bb = svg.getBBox(); svgW = bb.width; svgH = bb.height; } catch(e) {}
+      }
+      if (!svgW || !svgH) {
+        var bcr = svg.getBoundingClientRect();
+        svgW = bcr.width; svgH = bcr.height;
+      }
+
+      var wrapW = wrap.clientWidth;
+      var wrapH = wrap.clientHeight;
+
+      if (!svgW || !svgH || !wrapW || !wrapH) {
+        if (fitAttempts++ < 30) requestAnimationFrame(fitToView);
+        return;
+      }
+
+      var pad = 48;
+      var ns  = Math.min((wrapW - pad) / svgW, (wrapH - pad) / svgH, 1.8);
+      ns      = Math.max(ns, 0.08);
+      scale   = ns;
+      tx      = -(svgW * scale) / 2;
+      ty      = -(svgH * scale) / 2;
+      applyTransform();
+    }
+    requestAnimationFrame(fitToView);   // kick it off (retry loop handles the rest)
+  }
+
+  function _sizeMermaidSVG(svg) {
+    var wAttr = svg.getAttribute('width');
+    var hAttr = svg.getAttribute('height');
+    var w = parseFloat(wAttr) || 0;
+    var h = parseFloat(hAttr) || 0;
+    // Already has concrete pixel dims (not "%" or 0) — leave them
+    if (w > 1 && h > 1 && wAttr && wAttr.indexOf('%') === -1) return;
+
+    var vb = svg.getAttribute('viewBox');
+    if (!vb) return;
+    var pts = vb.trim().split(/[\s,]+/);
+    if (pts.length < 4) return;
+    // viewBox = "min-x min-y width height"
+    var vbW = parseFloat(pts[2]) || 0;
+    var vbH = parseFloat(pts[3]) || 0;
+    if (!vbW || !vbH) return;
+
+    // Stamp a canonical 1000px-wide render size so the pan/zoom engine
+    // always gets concrete pixel values from getAttribute()
+    var targetW = 1000;
+    var targetH = Math.round(targetW * vbH / vbW);
+    svg.setAttribute('width',  targetW);
+    svg.setAttribute('height', targetH);
   }
 
   function _wrapMermaidDiagram(el) {
     var svg = el.querySelector('svg');
     if (!svg || el.querySelector('.mermaid-viewer-wrap')) return;
+
+    _sizeMermaidSVG(svg);
 
     /* Detect mindmap: look for rotate transforms which are unique to mindmaps */
     var isMindmap = false;
@@ -891,8 +939,13 @@
     }
 
     /* Set a sensible fixed height so the viewer doesn't collapse */
-    var svgH = parseFloat(svg.getAttribute('height')) || svg.getBoundingClientRect().height || 320;
-    var viewH = Math.min(Math.max(svgH + 80, 220), window.innerHeight * 0.78);
+    var svgH = parseFloat(svg.getAttribute('height')) || 0;
+    if (!svgH) {
+      var _vb = svg.getAttribute('viewBox');
+      if (_vb) { var _p = _vb.trim().split(/[\s,]+/); svgH = parseFloat(_p[3]) || 0; }
+    }
+    if (!svgH) svgH = svg.getBoundingClientRect().height || 0;
+    var viewH = Math.min(Math.max(svgH + 80, isMindmap ? 400 : 260), window.innerHeight * 0.78);
 
     var wrap = document.createElement('div');
     wrap.className = 'mermaid-viewer-wrap' + (isMindmap ? ' mermaid-mindmap' : '');
@@ -1394,9 +1447,9 @@
       var viewportW = window.innerWidth * 0.92;  /* Account for scrollbar & margins */
       var maxW, baseW;
       
-      if      (ratio < 0.8)  maxW = 750;   /* tall/portrait  — less wide */
-      else if (ratio > 1.25) maxW = 1200;  /* wide/landscape — more wide */
-      else                   maxW = 900;   /* squarish — balanced */
+      if      (ratio < 0.8)  maxW = 375;   /* tall/portrait  — less wide */
+      else if (ratio > 1.25) maxW = 600;   /* wide/landscape — more wide */
+      else                   maxW = 450;   /* squarish — balanced */
 
       /* Scale down if viewport is too narrow */
       baseW = Math.min(maxW, Math.max(viewportW, 400));
@@ -1405,6 +1458,7 @@
         baseW = Math.min(maxW, viewportW - 30);
       }
 
+      baseW *= 0.3;  /* Adjust overall size (0.3 is a good balance for most cases) */ 
       var baseH = Math.round(baseW / ratio);
 
       /* Write explicit pixel width/height so fitToView can read them with
